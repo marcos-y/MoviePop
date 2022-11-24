@@ -1,5 +1,4 @@
 import './App.css';
-import react from 'react';
 
 //Pages
 import Login from './Pages/Login/Login';
@@ -8,14 +7,17 @@ import Search from './Pages/Search/Search';
 
 //Router
 import { Routes, Route } from 'react-router-dom'
+import PrivateRoutes from './Routes/PrivateRoutes';
 
 function App() {
   return (
-    <div style={{ backgroundImage: 'linear-gradient(to left, #223C53 , #223C53)', width:'100%', height:'100%' }}>
+    <div>
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/search' element={<Search/>}/>
+        <Route path='/Login' element={<Login/>}/>
+        <Route element={<PrivateRoutes/>} >
+          <Route path='/Home' element={<Home/>}/>
+          <Route path='/Search' element={<Search/>}/>
+        </Route>
       </Routes>
     </div>
   );
