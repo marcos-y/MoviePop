@@ -9,13 +9,19 @@ import PasswordTextField from '../../Components/PasswordTextField'
 //Movie Icon
 import icon from '../../Images/movie_icon.svg'
 
+//Navigate
+import { useNavigate } from "react-router-dom"
+
 const Login = () => {
+
+  const navigate = useNavigate();
 
   //Global flag
   sessionStorage.setItem('isLogged',false)
 
   const [user,setUser] = useState('')
   const [password, setPassword] = useState('')
+  const [buttonColor, setButtonColor] = useState('')
 
   const handleChangeUser = (e) => setUser(e.target.value)
   const handleChangePassword = (e) => setPassword(e.target.value)
@@ -27,6 +33,8 @@ const Login = () => {
 
       //Setting global flag
       sessionStorage.setItem('isLogged',true)
+
+      navigate('/Home')
     }
   }
 
@@ -51,7 +59,8 @@ const Login = () => {
         <PasswordTextField setPassword={setPassword}/>
         
         <Button onClick={handleClick} 
-        style={{ marginTop:'20px', width:'100%', fontFamily:'Nunito',backgroundColor:'transparent',color:'#C48900'}} 
+        style={{ marginTop:'20px', width:'100%', fontFamily:'Nunito',
+        backgroundColor:'transparent',color:'#C48900'}} 
         variant="contained">
           Entrar
         </Button>
