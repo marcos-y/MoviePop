@@ -61,7 +61,7 @@ const Search = () => {
           backgroundColor:'transparent '
         }}
       >
-        <TextField fullWidth style={{ width:'200px' }} label="Buscar" id="fullWidth" />
+        <TextField fullWidth label="Buscar" id="fullWidth" />
         <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
         <hr style={{
           marginTop: '12px',
