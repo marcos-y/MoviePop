@@ -35,110 +35,133 @@ const Search = () => {
   }
 
   return (
-    <>
-      <div style={{ marginTop: '16px' }}>
-        <IconButton onClick={handleClickGlass} style={{ marginRight: '13px', float: 'right' }}>
-          <FontAwesomeIcon style={{ color: isSelected2 ? '#C48900' : 'white' }}
-            inverse size="2x" icon={solid('magnifying-glass')} />
+    <div style={{ display:'flex', justifyContent:'center', flexDirection:'column'}}>
+      <div style={{ marginTop:'10px',width: '100%', backgroundColor:'transparent ' }}>
+        <IconButton onClick={handleClickGlass} style={{  marginRight: '14px',float: 'right' }}>
+          <FontAwesomeIcon style={{ width:'27px', color: isSelected2 ? '#C48900' : 'white' }}
+            inverse icon={solid('magnifying-glass')} />
         </IconButton>
 
-        <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '17px', float: 'right' }}>
-          <FontAwesomeIcon style={{ color: isSelected ? '#C48900' : 'white' }}
-            inverse size="2x" icon={solid('house-chimney')} />
+        <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
+          <FontAwesomeIcon style={{ width:'27px', color: isSelected ? '#C48900' : 'white' }}
+            inverse icon={solid('house-chimney')} />
         </IconButton>
       </div>
 
       <div
         style={{
-          transform: 'translate(-50%, -50%)',
-          margin: '0',
-          top: '20%',
-          left: '50%',
-          position: 'absolute',
-          maxWidth: '500px',
+          margin:'auto',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          marginTop: '550px'
+          maxWidth:'900px',
+          width:'100%',
+          height:'auto',
+          padding:'20px',
+          backgroundColor:'transparent '
         }}
       >
-        <TextField style={{ width:'200px'}} label="Buscar" />
+        <TextField fullWidth style={{ width:'200px' }} label="Buscar" id="fullWidth" />
         <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
         <hr style={{
           marginTop: '12px',
           width: '100%',
           backgroundColor: 'white',
-          color: 'white'
+          color: 'white',
+          margin:'auto',
+          marginBottom:'15px'
         }}>
         </hr>
 
-        <div style={{ display: 'flex', maxWidth: '900px', marginTop: '40px', fontFamily:'Nunito', color:'white' }}>
-          <div style={{ padding: '10px' }}>
-            <img src={img1} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', paddiing:'5px', 
+        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap',margin:'auto', width:'100%',height:'auto' }}>
+
+          <div style={{display:'flex', padding:'5px'}}>
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img1} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img2} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+          </div>
+      
+          <div style={{display:'flex'}} >
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img3} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img4} width="183px" height="183px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
           </div>
 
-          <div style={{ padding: '10px' }}>
-            <img src={img2} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img3} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img4} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
         </div>
 
-        <div style={{ display: 'flex', maxWidth: '900px', marginTop: '40px', fontFamily:'Nunito', color:'white' }}>
-          <div style={{ padding: '10px' }}>
-            <img src={img1} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center',
+        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}>
+
+          <div style={{display:'flex'}}>
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img1} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img2} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+          </div>
+      
+          <div style={{display:'flex'}} >
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img3} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img4} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
           </div>
 
-          <div style={{ padding: '10px' }}>
-            <img src={img2} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img3} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img4} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
         </div>
 
-        <div style={{ display: 'flex', maxWidth: '900px', marginTop: '40px', fontFamily:'Nunito', color:'white' }}>
-          <div style={{ padding: '10px' }}>
-            <img src={img1} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', marginBottom:'10px',
+        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}> 
+
+          <div style={{display:'flex'}}>
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img1} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img2} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+          </div>
+      
+          <div style={{display:'flex'}} >
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img3} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
+
+            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
+              <img src={img4} width="183px" height="189px"></img>
+              <h6 style={{ float: 'right' }}>Título</h6>
+            </div>
           </div>
 
-          <div style={{ padding: '10px' }}>
-            <img src={img2} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img3} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
-
-          <div style={{ padding: '10px' }}>
-            <img src={img4} width="200px" height="200px"></img>
-            <h6 style={{ float: 'right' }}>Título</h6>
-          </div>
         </div>
+
       </div>
-    </>
+    </div>
   )
 }
 

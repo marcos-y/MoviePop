@@ -25,15 +25,15 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ marginTop:'16px' }}>
-        <IconButton onClick={handleClickGlass} style={{ marginRight: '13px', float: 'right' }}>
-          <FontAwesomeIcon style={{ color: isSelected2 ? '#C48900' :'white' }} 
-           inverse size="2x" icon={solid('magnifying-glass')} />
+      <div style={{ position:'fixed',width: '100%', backgroundColor:'transparent' }}>
+        <IconButton onClick={handleClickGlass} style={{  marginRight: '14px' ,float: 'right' }}>
+          <FontAwesomeIcon style={{  width:'27px',  color: isSelected2 ? '#C48900' : 'white' }}
+            inverse size="2x" icon={solid('magnifying-glass')} />
         </IconButton>
 
-        <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '17px', float: 'right' }}>
-          <FontAwesomeIcon style={{ color: isSelected ? '#C48900' :'white' }} 
-          inverse size="2x" icon={solid('house-chimney')} />
+        <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
+          <FontAwesomeIcon style={{  width:'27px',  color: isSelected ? '#C48900' : 'white' }}
+            inverse size="2x" icon={solid('house-chimney')} />
         </IconButton>
       </div>
       
@@ -43,7 +43,8 @@ const Home = () => {
           margin: '0', 
           top:'50%',
           left: '50%' , 
-          position:'absolute' 
+          position:'absolute',
+          backgroundColor:'transparent'
         }}
       >
       <img style={{ maxWidth:'332px' }} src={img}></img>
