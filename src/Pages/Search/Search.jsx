@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
+
+//Icons
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useNavigate } from "react-router-dom"
+
+//Components
 import TextField from '../../Components/TextField'
+import Movie from '../../Components/Movie'
 
 //Images
 import img1 from '../../Images/movie6.jpg'
@@ -16,7 +21,9 @@ import img7 from '../../Images/movie7.jpg'
 import img8 from '../../Images/movie3.jpg'
 import img9 from '../../Images/movie9.jpg'
 
-const Search = () => {
+const Search = (props) => {
+
+  console.log('new array', props.array)
 
   const navigate = useNavigate();
   const [isSelected, setIsSelected] = useState(false)
@@ -65,7 +72,7 @@ const Search = () => {
         <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
         <hr style={{
           marginTop: '12px',
-          width: '100%',
+          width: '93%',
           backgroundColor: 'white',
           color: 'white',
           margin:'auto',
@@ -73,91 +80,40 @@ const Search = () => {
         }}>
         </hr>
 
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', paddiing:'5px', 
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
         fontFamily: 'Nunito', color: 'white', flexWrap:'wrap',margin:'auto', width:'100%',height:'auto' }}>
-
           <div style={{display:'flex', padding:'5px'}}>
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img1} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img2} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Gladiator" img={img1}/>
+            <Movie title="Avatar" img={img2}/>
           </div>
-      
           <div style={{display:'flex'}} >
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img3} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img4} width="183px" height="183px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Resident Evil: Afterlife"  img={img3}/>
+            <Movie title="Edge of Tomorrow"  img={img4}/>
           </div>
-
         </div>
 
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center',
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
         fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}>
-
           <div style={{display:'flex'}}>
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img1} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img2} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Gladiator"  img={img1}/>
+            <Movie title="Avatar"  img={img2}/>
           </div>
-      
           <div style={{display:'flex'}} >
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img3} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img4} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Resident Evil: Afterlife"  img={img3}/>
+            <Movie title="Edge of Tomorrow"  img={img4}/>
           </div>
-
         </div>
 
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', marginBottom:'10px',
-        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}> 
-
+        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
+        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}>
           <div style={{display:'flex'}}>
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img1} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img2} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Gladiator"  img={img1}/>
+            <Movie title="Avatar"  img={img2}/>
           </div>
-      
           <div style={{display:'flex'}} >
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img3} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
-
-            <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img src={img4} width="183px" height="189px"></img>
-              <h6 style={{ float: 'right' }}>Título</h6>
-            </div>
+            <Movie title="Resident Evil: Afterlife"  img={img3}/>
+            <Movie title="Edge of Tomorrow"  img={img4}/>
           </div>
-
         </div>
 
       </div>
