@@ -40,11 +40,13 @@ function App() {
   return (
     <div>
       <Routes>
+
         <Route path='/' element={<Login />} />
         <Route path='/Search' element={<Search array={array} />} />
         <Route path='/Movie' element={<MoviePage />} />
         <Route path='/Home' element={<Home />} />
         <Route element={<PrivateRoutes />} >
+
         </Route>
       </Routes>
     </div>

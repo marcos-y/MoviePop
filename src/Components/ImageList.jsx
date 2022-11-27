@@ -17,7 +17,7 @@ import img9 from '../../src/Images/movie9.jpg'
 
 export default function StandardImageList() {
   return (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+    <ImageList sx={{ width: 500, height: 500 }} cols={3} rowHeight={164}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
