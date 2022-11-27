@@ -45,14 +45,18 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
+
         <Route element={<PrivateRoutes />} >
           {/**Here Private Routes*/}
         </Route>
+
         <Route path='/' element={<Login />} />
         <Route path='/Search' element={<Search array={array} />} />
         <Route path='/Movie' element={<MoviePage />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Favorites' element={<Favorites />} />
+
+  
       </Routes>
     </div>
   );

@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 export default function InputAdornments(props) {
     const [values, setValues] = React.useState({
         amount: '',
-        password: '',
+        password: props.password,
         weight: '',
         weightRange: '',
         showPassword: false,
@@ -20,8 +20,9 @@ export default function InputAdornments(props) {
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value })
         console.log(values)
-        props.setPassword(values.password);
     };
+
+    props.setPassword(values.password);
 
     const handleClickShowPassword = () => {
         setValues({
@@ -45,7 +46,7 @@ export default function InputAdornments(props) {
                 autoComplete="off"
             >
             <FormControl size="small" sx={{ m: 1, width: '100%' }} variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">Contraseña</InputLabel>
+                <InputLabel style={{color:'white',fontFamily:'Nunito'}} htmlFor="outlined-adornment-password">Contraseña</InputLabel>
                 <OutlinedInput
                     id="outlined-adornment-password"
                     type={values.showPassword ? 'text' : 'password'}

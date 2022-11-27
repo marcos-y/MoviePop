@@ -35,7 +35,7 @@ const Search = (props) => {
           backgroundColor: 'transparent '
         }}
       >
-        <TextField fullWidth label="Buscar" id="fullWidth" />
+        <TextField label="Buscar" id="fullWidth" />
         <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
         <hr style={{
           marginTop: '12px',

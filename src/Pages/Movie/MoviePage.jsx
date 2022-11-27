@@ -38,21 +38,34 @@ const Movie = (props) => {
                     </img>
 
                     <div style={{ fontFamily: 'Nunito' }}>
+<<<<<<< HEAD
                         <h5 style={{ textAlign: 'center' }}>Título: {title}</h5>
+=======
+                        <h5 style={{ textAlign:'center', fontSize:'20px' }}>Título: {title}</h5>
+>>>>>>> main
                         <div>
-                            <h6>Lenguaje:</h6>
-                            <h6>Géneros:</h6>
-                            <h6>Fecha de estreno:</h6>
+                            <h6 style={{ padding: '2px', margin: '2px'}} >Lenguaje:</h6>
+                            <h6 style={{ padding: '2px', margin: '2px'}}>Géneros:</h6>
+                            <h6 style={{ padding: '2px', margin: '2px'}}>Fecha de estreno:</h6>
                         </div>
                     </div>
 
                     <div style={{ fontFamily: 'Nunito' }}>
+<<<<<<< HEAD
                         <h5 style={{ textAlign: 'center' }}>Sinopsis:</h5>
                         <div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
                                 in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+=======
+                        <h5 style={{ textAlign:'center', fontSize:'20px' }}>Sinopsis:</h5>
+                        <div>
+                            <p style={{ textAlign:'center', fontSize:'14px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+>>>>>>> main
                                 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
                     </div>
