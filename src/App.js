@@ -15,6 +15,9 @@ import Favorites from './Pages/Favorites/Favorites';
 import { Routes, Route } from 'react-router-dom'
 import PrivateRoutes from './Routes/PrivateRoutes';
 
+//Components
+import Navbar from './Components/Navbar';
+
 function App() {
 
   const [array, setArray]= useState([])
@@ -40,14 +43,16 @@ function App() {
 
   return (
     <div>
+      <Navbar/>
       <Routes>
+        <Route element={<PrivateRoutes />} >
+          {/**Here Private Routes*/}
+        </Route>
         <Route path='/' element={<Login />} />
         <Route path='/Search' element={<Search array={array} />} />
         <Route path='/Movie' element={<MoviePage />} />
         <Route path='/Home' element={<Home />} />
         <Route path='/Favorites' element={<Favorites />} />
-        <Route element={<PrivateRoutes />} >
-        </Route>
       </Routes>
     </div>
   );
