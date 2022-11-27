@@ -1,7 +1,6 @@
 import React from 'react'
 
 //Components
-import TextField from '../../Components/TextField'
 import Movie from '../../Components/Movie'
 
 //Images
@@ -15,12 +14,10 @@ import img7 from '../../Images/movie7.jpg'
 import img8 from '../../Images/movie3.jpg'
 import img9 from '../../Images/movie9.jpg'
 
-const Search = (props) => {
-
-  console.log('new array', props.array)
+const Favorites = () => {
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
       <div
         style={{
           marginTop:'200px',
@@ -35,8 +32,7 @@ const Search = (props) => {
           backgroundColor: 'transparent '
         }}
       >
-        <TextField label="Buscar" id="fullWidth" />
-        <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
+        <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Mis Peliculas favoritas</h5>
         <hr style={{
           marginTop: '12px',
           width: '93%',
@@ -94,4 +90,4 @@ const Search = (props) => {
   )
 }
 
-export default Search
+export default Favorites
