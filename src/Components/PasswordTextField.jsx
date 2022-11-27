@@ -46,8 +46,9 @@ export default function InputAdornments(props) {
                 autoComplete="off"
             >
             <FormControl size="small" sx={{ m: 1, width: '100%' }} variant="outlined">
-                <InputLabel style={{color:'white',fontFamily:'Nunito'}} htmlFor="outlined-adornment-password">Contraseña</InputLabel>
+                <InputLabel style={{color:'white',fontFamily:'Nunito',fontSize:'14px'}} htmlFor="outlined-adornment-password">Contraseña</InputLabel>
                 <OutlinedInput
+                    style={{fontSize:'14px'}} 
                     id="outlined-adornment-password"
                     type={values.showPassword ? 'text' : 'password'}
                     value={values.password}
