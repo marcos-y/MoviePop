@@ -7,13 +7,27 @@ export default function BasicTextFields(props) {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
+        '& > :not(style)': { m: 1, width: window.location.href == 'http://localhost:3000/' ? '25ch' : '44ch' }
       }}
       noValidate
       autoComplete="off"
     >
-      <TextField onChange={props.onChange} value={props.value} size="small" id={props.label} 
-      label={props.label} variant="outlined" />
+
+      <TextField
+        InputProps={{ style:
+          {
+            borderRadius: window.location.href == 'http://localhost:3000/' ? '0px' : '15px',
+            borderColor:'transparent'
+          }
+        }}
+        InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px' } }}
+        onChange={props.onChange}
+        value={props.value}
+        size="small"
+        id={props.label}
+        label={props.label}
+      />
+
     </Box>
   );
 }

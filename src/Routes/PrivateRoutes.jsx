@@ -7,7 +7,7 @@ const PrivateRoutes = () => {
     let auth = JSON.parse(sessionStorage.getItem('isLogged')) 
 
     return(
-        auth ? <Outlet/> : <Navigate to="/Login"/>
+        auth ? <Outlet/> : <Navigate to="/"/>
     )
 }
 
