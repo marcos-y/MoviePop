@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home';
 import Search from './Pages/Search/Search';
 import MoviePage from './Pages/Movie/MoviePage';
+import Favorites from './Pages/Favorites/Favorites';
 
 //Router
 import { Routes, Route } from 'react-router-dom'
@@ -44,6 +45,7 @@ function App() {
         <Route path='/Search' element={<Search array={array} />} />
         <Route path='/Movie' element={<MoviePage />} />
         <Route path='/Home' element={<Home />} />
+        <Route path='/Favorites' element={<Favorites />} />
         <Route element={<PrivateRoutes />} >
         </Route>
       </Routes>

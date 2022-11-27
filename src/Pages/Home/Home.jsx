@@ -31,6 +31,11 @@ const Home = () => {
             inverse size="2x" icon={solid('magnifying-glass')} />
         </IconButton>
 
+        <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
+          <FontAwesomeIcon style={{ width: '27px', color: 'white' }}
+            inverse  size="2x" icon={solid('star')} />
+        </IconButton>
+
         <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
           <FontAwesomeIcon style={{  width:'27px',  color: isSelected ? '#C48900' : 'white' }}
             inverse size="2x" icon={solid('house-chimney')} />
@@ -48,7 +53,7 @@ const Home = () => {
         }}
       >
       <img style={{ maxWidth:'332px' }} src={img}></img>
-      <h1 style={{ color: '#C48900', fontFamily: 'Nunito',}} align="center">
+      <h1 style={{ color: '#C48900', fontFamily: 'Nunito' }} align="center">
           MoviePop!
       </h1>
       </div>

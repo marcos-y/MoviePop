@@ -42,30 +42,35 @@ const Search = (props) => {
   }
 
   return (
-    <div style={{ display:'flex', justifyContent:'center', flexDirection:'column'}}>
-      <div style={{ marginTop:'10px',width: '100%', backgroundColor:'transparent ' }}>
-        <IconButton onClick={handleClickGlass} style={{  marginRight: '14px',float: 'right' }}>
-          <FontAwesomeIcon style={{ width:'27px', color: isSelected2 ? '#C48900' : 'white' }}
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+      <div style={{ marginTop: '10px', width: '100%', backgroundColor: 'transparent ' }}>
+        <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
+          <FontAwesomeIcon style={{ width: '27px', color: isSelected2 ? '#C48900' : 'white' }}
             inverse icon={solid('magnifying-glass')} />
         </IconButton>
 
+        <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
+          <FontAwesomeIcon style={{ width: '27px', color: 'white' }}
+            inverse icon={solid('star')} />
+        </IconButton>
+
         <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
-          <FontAwesomeIcon style={{ width:'27px', color: isSelected ? '#C48900' : 'white' }}
+          <FontAwesomeIcon style={{ width: '27px', color: isSelected ? '#C48900' : 'white' }}
             inverse icon={solid('house-chimney')} />
         </IconButton>
       </div>
 
       <div
         style={{
-          margin:'auto',
+          margin: 'auto',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          maxWidth:'900px',
-          width:'100%',
-          height:'auto',
-          padding:'20px',
-          backgroundColor:'transparent '
+          maxWidth: '900px',
+          width: '100%',
+          height: 'auto',
+          padding: '20px',
+          backgroundColor: 'transparent '
         }}
       >
         <TextField fullWidth label="Buscar" id="fullWidth" />
@@ -75,44 +80,50 @@ const Search = (props) => {
           width: '93%',
           backgroundColor: 'white',
           color: 'white',
-          margin:'auto',
-          marginBottom:'15px'
+          margin: 'auto',
+          marginBottom: '15px'
         }}>
         </hr>
 
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
-        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap',margin:'auto', width:'100%',height:'auto' }}>
-          <div style={{display:'flex', padding:'5px'}}>
-            <Movie title="Gladiator" img={img1}/>
-            <Movie title="Avatar" img={img2}/>
+        <div style={{
+          display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
+          fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap', margin: 'auto', width: '100%', height: 'auto'
+        }}>
+          <div style={{ display: 'flex', padding: '5px' }}>
+            <Movie title="Gladiator" img={img1} />
+            <Movie title="Avatar" img={img2} />
           </div>
-          <div style={{display:'flex'}} >
-            <Movie title="Resident Evil: Afterlife"  img={img3}/>
-            <Movie title="Edge of Tomorrow"  img={img4}/>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
-        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}>
-          <div style={{display:'flex'}}>
-            <Movie title="Gladiator"  img={img1}/>
-            <Movie title="Avatar"  img={img2}/>
-          </div>
-          <div style={{display:'flex'}} >
-            <Movie title="Resident Evil: Afterlife"  img={img3}/>
-            <Movie title="Edge of Tomorrow"  img={img4}/>
+          <div style={{ display: 'flex' }} >
+            <Movie title="Resident Evil: Afterlife" img={img3} />
+            <Movie title="Edge of Tomorrow" img={img4} />
           </div>
         </div>
 
-        <div style={{ display: 'flex', marginTop: '40px', justifyContent:'center', padding:'5px', 
-        fontFamily: 'Nunito', color: 'white', flexWrap:'wrap' }}>
-          <div style={{display:'flex'}}>
-            <Movie title="Gladiator"  img={img1}/>
-            <Movie title="Avatar"  img={img2}/>
+        <div style={{
+          display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
+          fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap'
+        }}>
+          <div style={{ display: 'flex' }}>
+            <Movie title="Gladiator" img={img1} />
+            <Movie title="Avatar" img={img2} />
           </div>
-          <div style={{display:'flex'}} >
-            <Movie title="Resident Evil: Afterlife"  img={img3}/>
-            <Movie title="Edge of Tomorrow"  img={img4}/>
+          <div style={{ display: 'flex' }} >
+            <Movie title="Resident Evil: Afterlife" img={img3} />
+            <Movie title="Edge of Tomorrow" img={img4} />
+          </div>
+        </div>
+
+        <div style={{
+          display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
+          fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap'
+        }}>
+          <div style={{ display: 'flex' }}>
+            <Movie title="Gladiator" img={img1} />
+            <Movie title="Avatar" img={img2} />
+          </div>
+          <div style={{ display: 'flex' }} >
+            <Movie title="Resident Evil: Afterlife" img={img3} />
+            <Movie title="Edge of Tomorrow" img={img4} />
           </div>
         </div>
 
