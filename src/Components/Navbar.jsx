@@ -8,66 +8,77 @@ import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    //console.log('window location', window.location.href)
+  //console.log('window location', window.location.href)
 
-    //Selected buttons
+  //Selected buttons
 
-    //House Icon State
-    const [isSelected, setIsSelected] = useState(true)
+  //House Icon State
+  const [isSelected, setIsSelected] = useState(true)
 
-    //Glass Icon State
-    const [isSelected2, setIsSelected2] = useState(false)
+  //Glass Icon State
+  const [isSelected2, setIsSelected2] = useState(false)
 
-    //Star Icon State
-    const [isSelected3, setIsSelected3 ] = useState(false)
-  
-    const handleClickHouseIcon = () => {
-      setIsSelected(true)
-      setIsSelected2(false)
-      setIsSelected3(false)
-      navigate("/Home")
-    }
-  
-    const handleClickGlass = () => {
-      setIsSelected2(true)
-      setIsSelected(false)
-      setIsSelected3(false)
-      navigate("/Search")
-    }  
+  //Star Icon State
+  const [isSelected3, setIsSelected3] = useState(false)
 
-    const handleClickStar = () =>{
-      setIsSelected(false)
-      setIsSelected2(false)
-      setIsSelected3(true)
-      navigate("/Favorites")
-    }
+  const handleClickHouseIcon = () => {
+    setIsSelected(true)
+    setIsSelected2(false)
+    setIsSelected3(false)
+    navigate("/Home")
+  }
 
-    return (
-        <>
-        {
-        (window.location.href==='http://localhost:3000/Movie' || window.location.href==='http://localhost:3000/' ) ? null :
-        (
-            <div style={{ marginTop: '10px', width: '100%', backgroundColor: 'transparent ', height:'60px' }}>
-                <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
-                    <FontAwesomeIcon style={{ width: '27px', color: isSelected2 ? '#C48900' : 'white' }}
-                        inverse icon={solid('magnifying-glass')} />
-                </IconButton>
+  const handleClickGlass = () => {
+    setIsSelected2(true)
+    setIsSelected(false)
+    setIsSelected3(false)
+    navigate("/Search")
+  }
 
-                <IconButton onClick={handleClickStar} style={{ marginRight: '14px', float: 'right' }}>
-                    <FontAwesomeIcon style={{ width: '27px', color: isSelected3 ? '#C48900' : 'white' }}
-                        inverse icon={solid('star')} />
-                </IconButton>
+  const handleClickStar = () => {
+    setIsSelected(false)
+    setIsSelected2(false)
+    setIsSelected3(true)
+    navigate("/Favorites")
+  }
 
-                <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
-                    <FontAwesomeIcon style={{ width: '27px', color: isSelected ? '#C48900' : 'white' }}
-                        inverse icon={solid('house-chimney')} />
-                </IconButton>
+  const handleClickExit = () => {
+    sessionStorage.setItem('isLogged', false)
+    navigate("/")
+  }
+
+  return (
+    <>
+      {
+        (window.location.href === 'http://localhost:3000/Movie' || window.location.href === 'http://localhost:3000/') ? null :
+          (
+            <div style={{ marginTop: '10px', width: '100%', backgroundColor: 'transparent ', height: '60px' }}>
+
+              <IconButton onClick={handleClickExit} style={{ marginRight: '14px', float: 'right' }}>
+                <FontAwesomeIcon style={{ width: '27px', color: 'white' }}
+                  inverse icon={solid('right-from-bracket')} />
+              </IconButton>
+
+              <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
+                <FontAwesomeIcon style={{ width: '27px', color: isSelected2 ? '#C48900' : 'white' }}
+                  inverse icon={solid('magnifying-glass')} />
+              </IconButton>
+
+              <IconButton onClick={handleClickStar} style={{ marginRight: '14px', float: 'right' }}>
+                <FontAwesomeIcon style={{ width: '27px', color: isSelected3 ? '#C48900' : 'white' }}
+                  inverse icon={solid('star')} />
+              </IconButton>
+
+              <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
+                <FontAwesomeIcon style={{ width: '27px', color: isSelected ? '#C48900' : 'white' }}
+                  inverse icon={solid('house-chimney')} />
+              </IconButton>
             </div>
-        )
-        }
-        </>)
+          )
+      }
+    </>)
 }
 
 export default Navbar

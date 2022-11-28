@@ -21,45 +21,55 @@ import Navbar from './Components/Navbar';
 function App() {
 
   const [movies, setMovies] = useState([])
+  const [favoriteMovies, setFavoriteMovies] = useState([])
 
-  //API data ( --ALL MOVIES-- and --FAVORITE MOVIES--)
+  //API data ( GET--ALL MOVIES-- )
   const getMovies = async () => {
     await
       axios
         .get('https://api.tvmaze.com/search/shows?q=star%20wars')
         .then(({ data }) => {
-          //console.log(data)
-          //console.log(data[0].show.name)
-          //console.log(data[0].show.genres)
-          //console.log(data[0].show.language)
-          //console.log(data[0].show.premiered)
-          //console.log(data[0].show.summary)
           setMovies(data)
-          console.log('Movie list:',movies)
+          //console.log('Movie list:',data)
         })
         .catch(({ response }) => {
           console.log(response)
         })
   }
+
+  //API data ( GET--FAVORITE MOVIES--)
+  const getFavoriteMovies = async () => {
+    await
+      axios
+        .get('http://localhost:8080/favorites/1')
+        .then(({ data }) => {
+          setFavoriteMovies(data)
+          //console.log('Movie list:',movies)
+        })
+        .catch(({ response }) => {
+          console.log(response)
+        })
+  }
+
   useEffect(() => {
     getMovies()
+    getFavoriteMovies()
   }, [])
 
   return (
     <div>
       <Navbar />
       <Routes>
+        {/*Here Public Routes*/}
+        <Route path='/' element={<LoginPage />} />
 
         <Route element={<PrivateRoutes />} >
-          {/**Here Private Routes*/}
+          {/*Here Private Routes*/}
+          <Route path='/Search' element={<SearchPage movies={movies} />} />
+          <Route path='/Movie' element={<MoviePage />} />
+          <Route path='/Home' element={<HomePage />} />
+          <Route path='/Favorites' element={<FavoritesPage favoriteMovies={favoriteMovies} />} />
         </Route>
-
-        <Route path='/' element={<LoginPage />} />
-        <Route path='/Search' element={<SearchPage movies={movies} />} />
-        <Route path='/Movie' element={<MoviePage />} />
-        <Route path='/Home' element={<HomePage />} />
-        <Route path='/Favorites' element={<FavoritesPage movies={movies} />} />
-
       </Routes>
     </div>
   );

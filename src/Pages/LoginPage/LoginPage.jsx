@@ -28,12 +28,12 @@ const LoginPage = () => {
 
 
   const handleClick = () => {
-    console.log('user:', UserName, 'password:', UserPassword)
+    //console.log('user:', UserName, 'password:', UserPassword)
     
     axios
       .post('http://localhost:8080/users', { UserName, UserPassword })
       .then(({ data }) => {
-        console.log('Sucessfully logged')
+        //console.log('Sucessfully logged')
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
         navigate('/Home')
@@ -57,10 +57,6 @@ const LoginPage = () => {
         
         <TextField id="1" onChange={handleChangeUserName} value={UserName} label="Usuario" 
         style={{  width:'100%', height:'50px', backgroundColor:'transparent'}}/>
-
-        {/* <TextField onChange={handleChangePassword} value={password} label="Contraseña" 
-        style={{  width:'100%', height:'50px', backgroundColor:'transparent'}}/>
-        */}
 
         <PasswordTextField setPassword={setUserPassword}/>
         
