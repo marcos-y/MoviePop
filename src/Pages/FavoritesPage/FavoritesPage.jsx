@@ -111,7 +111,7 @@ const data = [
 
 const FavoritesPage = (props) => {
 
-  console.log('new array', props.array)
+  //console.log('new array', props.array)
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
@@ -144,21 +144,22 @@ const FavoritesPage = (props) => {
           display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
           fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap', minWidth: '200px'
         }}>
-         <div style={{ display: 'flex', maxWidth:'1000px', flexWrap:'wrap',justifyContent:'center',minWidth:'415px' }}>
-              {
-              data.map((movie) => {
+          <div style={{ display: 'flex', maxWidth: '1000px', flexWrap: 'wrap', justifyContent: 'center', minWidth: '415px' }}>
+            {
+              props.movies.map((movie) => {
                 return (
                   <Movie
-                    title={movie.title}
-                    language={movie.language}
-                    genres={movie.genres}
-                    date={movie.date}
-                    synopsis={movie.synopsis}
-                    img={movie.img} />
-                  )
-                })
-              }
-            </div>
+                    key={movie}
+                    name={movie.show.name}
+                    language={movie.show.language}
+                    genres={movie.show.genres}
+                    premiered={movie.show.premiered}
+                    synopsis={movie.show.summary}
+                    img={movie.show.image} />
+                )
+              })
+            }
+          </div>
         </div>
       </div>
     </div>

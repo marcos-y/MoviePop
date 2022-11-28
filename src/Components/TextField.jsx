@@ -17,7 +17,10 @@ export default function BasicTextFields(props) {
         InputProps={{ style:
           {
             borderRadius: window.location.href == 'http://localhost:3000/' ? '0px' : '15px',
-            borderColor:'transparent'
+            borderColor:'transparent',
+            color:'white',
+            fontSize:'14',
+            fontFamily:'Nunito'
           }
         }}
         InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px' } }}

@@ -20,30 +20,34 @@ import Navbar from './Components/Navbar';
 
 function App() {
 
-  const [movies, setMovies]= useState([])
+  const [movies, setMovies] = useState([])
 
   //API data ( --ALL MOVIES-- and --FAVORITE MOVIES--)
+  const getMovies = async () => {
+    await
+      axios
+        .get('https://api.tvmaze.com/search/shows?q=star%20wars')
+        .then(({ data }) => {
+          //console.log(data)
+          //console.log(data[0].show.name)
+          //console.log(data[0].show.genres)
+          //console.log(data[0].show.language)
+          //console.log(data[0].show.premiered)
+          //console.log(data[0].show.summary)
+          setMovies(data)
+          console.log('Movie list:',movies)
+        })
+        .catch(({ response }) => {
+          console.log(response)
+        })
+  }
   useEffect(() => {
-    axios
-      .get('https://api.tvmaze.com/search/shows?q=star%20wars')
-      .then(({ data }) => {
-        //console.log(data)
-        //console.log(data[0].show.name)
-        //console.log(data[0].show.genres)
-        //console.log(data[0].show.language)
-        //console.log(data[0].show.premiered)
-        //console.log(data[0].show.summary)
-        setMovies(data)
-        //setSearchResults(data)
-      })
-      .catch(({ response }) => {
-        console.log(response)
-      })
+    getMovies()
   }, [])
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
 
         <Route element={<PrivateRoutes />} >
@@ -54,7 +58,7 @@ function App() {
         <Route path='/Search' element={<SearchPage movies={movies} />} />
         <Route path='/Movie' element={<MoviePage />} />
         <Route path='/Home' element={<HomePage />} />
-        <Route path='/Favorites' element={<FavoritesPage />} />
+        <Route path='/Favorites' element={<FavoritesPage movies={movies} />} />
 
       </Routes>
     </div>

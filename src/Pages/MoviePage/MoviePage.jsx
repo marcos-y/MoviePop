@@ -3,8 +3,8 @@ import IconButton from '@mui/material/IconButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useLocation, useNavigate } from "react-router-dom"
-import img1 from '../../Images/movie6.jpg'
 import Comentario from '../../Components/Comentario'
+import { AccordionSummary } from '@mui/material'
 
 const MoviePage = (props) => {
 
@@ -15,11 +15,15 @@ const MoviePage = (props) => {
     }
 
     const { state } = useLocation();
-    const { title } = state || {};
+    const { name } = state || {};
     const { language } = state || {};
     const { genres } = state || {};
-    const { date } = state || {};
+    const { premiered } = state || {};
     const { synopsis} = state || {};
+    const { img } = state || {};
+
+    var summary = synopsis.replace(/<[^>]+>/g, '');
+    console.log(summary)
 
     //Receive comments from DB
     const comments = [
@@ -50,29 +54,29 @@ const MoviePage = (props) => {
 
                 <div style={{
                     color: 'white', maxWidth: '600px',minWidth:'376px', height: 'auto', margin: 'auto', width: '100%'
-                    , marginTop: '20px', padding: '10px'
+                    , marginTop: '20px', padding: '5px'
                 }}>
-                    <img src={img1} style={{ width: '100%' }} >
-                    </img>
+                    <img src={img.original} style={{ width: '100%' }} ></img>
 
                     <div style={{ fontFamily: 'Nunito' }}>
-                        <h5 style={{ textAlign:'center', fontSize:'20px' }}>Título: {title}</h5>
+                        <h5 style={{ textAlign:'center', fontSize:'20px' }}>Título: {name}</h5>
                         <div>
                             <h6 style={{ padding: '2px', margin: '2px'}} >Lenguaje: {language}</h6>
                             <h6 style={{ padding: '2px', margin: '2px'}}>Géneros: {genres}</h6>
-                            <h6 style={{ padding: '2px', margin: '2px'}}>Fecha de estreno: {date}</h6>
+                            <h6 style={{ padding: '2px', margin: '2px'}}>Fecha de estreno: {premiered}</h6>
                         </div>
                     </div>
 
                     <div style={{ fontFamily: 'Nunito' }}>
                         <h5 style={{ textAlign:'center', fontSize:'20px' }}>Sinopsis:</h5>
-                        <div>
-                            <p style={{ textAlign:'center', fontSize:'14px' }}>{synopsis}</p>
+                        <div style={{  fontSize:'14px' }}>
+                            {summary}
                         </div>
                     </div>
                 </div>
 
-                <div style={{ color: 'white', fontFamily: 'Nunito', margin: 'auto', maxWidth: '600px',minWidth:'376px', padding:'10px' }}>
+                <div style={{ color: 'white', fontFamily: 'Nunito', margin: 'auto', maxWidth: '600px'
+                ,minWidth:'376px', padding:'10px' }}>
                     <hr style={{
                         marginTop: '30px',
                         width: '100%',

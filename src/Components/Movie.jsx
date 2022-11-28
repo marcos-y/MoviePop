@@ -7,20 +7,21 @@ const Movie = (props) => {
 
   const handleClick= () =>{
     navigate("/Movie", { state:{ 
-      title: props.title,
+      name: props.name,
       language: props.language,
       genres: props.genres,
-      date: props.date,
-      synopsis: props.synopsis
+      premiered: props.premiered,
+      synopsis: props.synopsis,
+      img:props.img
     } })
   }
 
   return (
     <>
         <div style={{ padding: '10px', display:'flex', flexDirection:'column' }}>
-              <img style={{ cursor:'pointer' }} onClick={handleClick} src={props.img} width="183px" height="189px">
+              <img style={{ cursor:'pointer' }} onClick={handleClick} src={props.img.original} width="183px" height="189px">
               </img>
-              <h6 style={{ textAlign:'right', fontSize:'14px' }}>{props.title}</h6>
+              <h6 style={{ textAlign:'right', fontSize:'14px',padding:'0px',marginTop:'12px' }}>{props.name}</h6>
         </div>
     </>
   )
