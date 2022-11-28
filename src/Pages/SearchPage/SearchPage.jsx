@@ -49,6 +49,7 @@ const SearchPage = (props) => {
               searchResults.map((movie) => {
                 return (
                   <Movie
+                    href="SearchPage"
                     key={movie.name}
                     name={movie.show.name}
                     language={movie.show.language}

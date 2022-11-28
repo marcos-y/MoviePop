@@ -23,10 +23,6 @@ const MoviePage = (props) => {
         setNewComment('')
     }
 
-    const handleClick = () => {
-        navigate("/Search")
-    }
-
     const { state } = useLocation();
     const { name } = state || {};
     const { language } = state || {};
@@ -34,6 +30,15 @@ const MoviePage = (props) => {
     const { premiered } = state || {};
     const { synopsis } = state || {};
     const { img } = state || {};
+    const { href } = state || {};
+
+    const handleClick = () => {
+        if(href==="SearchPage"){
+            navigate("/Search")
+        }else{
+            navigate("/Favorites")
+        }
+    }
 
     var summary = synopsis.replace(/<[^>]+>/g, '');
 

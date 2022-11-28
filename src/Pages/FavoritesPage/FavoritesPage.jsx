@@ -41,6 +41,7 @@ const FavoritesPage = (props) => {
               props.favoriteMovies.map((movie) => {
                 return (
                   <Movie
+                    href="FavoritesPage"
                     key={movie.name}
                     name={movie.name}
                     language={movie.language}

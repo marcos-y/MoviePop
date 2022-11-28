@@ -7,6 +7,7 @@ const Movie = (props) => {
 
   const handleClick= () =>{
     navigate("/Movie", { state:{ 
+      href: props.href,
       name: props.name,
       language: props.language,
       genres: props.genres,
