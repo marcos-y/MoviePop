@@ -73,7 +73,7 @@ const MoviePage = (props) => {
                     color: 'white', maxWidth: '600px', minWidth: '376px', height: 'auto', margin: 'auto', width: '100%'
                     , marginTop: '20px', padding: '5px'
                 }}>
-                    <img src={img.original} style={{ width: '100%' }} ></img>
+                    <img src={img.original || img} style={{ width: '100%' }} ></img>
 
                     <div style={{ fontFamily: 'Nunito' }}>
                         <h5 style={{ textAlign: 'center', fontSize: '20px' }}>Título: {name}</h5>
