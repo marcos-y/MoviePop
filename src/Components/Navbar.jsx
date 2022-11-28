@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    console.log('window location', window.location.href)
+    //console.log('window location', window.location.href)
 
     //Selected buttons
 

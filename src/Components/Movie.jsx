@@ -6,7 +6,13 @@ const Movie = (props) => {
   const navigate = useNavigate();
 
   const handleClick= () =>{
-    navigate("/Movie", { state:{ title: props.title } })
+    navigate("/Movie", { state:{ 
+      title: props.title,
+      language: props.language,
+      genres: props.genres,
+      date: props.date,
+      synopsis: props.synopsis
+    } })
   }
 
   return (

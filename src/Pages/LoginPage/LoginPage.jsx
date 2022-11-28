@@ -13,7 +13,7 @@ import icon from '../../Images/movie_icon.svg'
 //Navigate
 import { useNavigate } from "react-router-dom"
 
-const Login = () => {
+const LoginPage = () => {
 
   const navigate = useNavigate();
 
@@ -88,4 +88,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

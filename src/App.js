@@ -5,11 +5,11 @@ import './App.css';
 import axios from 'axios'
 
 //Pages
-import Login from './Pages/Login/Login';
-import Home from './Pages/Home/Home';
-import Search from './Pages/Search/Search';
-import MoviePage from './Pages/Movie/MoviePage';
-import Favorites from './Pages/Favorites/Favorites';
+import LoginPage from './Pages/LoginPage/LoginPage';
+import HomePage from './Pages/HomePage/HomePage';
+import SearchPage from './Pages/SearchPage/SearchPage';
+import MoviePage from './Pages/MoviePage/MoviePage';
+import FavoritesPage from './Pages/FavoritesPage/FavoritesPage';
 
 //Router
 import { Routes, Route } from 'react-router-dom'
@@ -20,26 +20,26 @@ import Navbar from './Components/Navbar';
 
 function App() {
 
-  const [array, setArray]= useState([])
+  const [movies, setMovies]= useState([])
 
-  //API data 
+  //API data ( --ALL MOVIES-- and --FAVORITE MOVIES--)
   useEffect(() => {
     axios
       .get('https://api.tvmaze.com/search/shows?q=star%20wars')
       .then(({ data }) => {
-        console.log(data)
+        //console.log(data)
         //console.log(data[0].show.name)
         //console.log(data[0].show.genres)
         //console.log(data[0].show.language)
         //console.log(data[0].show.premiered)
         //console.log(data[0].show.summary)
-        setArray(data)
+        setMovies(data)
+        //setSearchResults(data)
       })
       .catch(({ response }) => {
         console.log(response)
       })
   }, [])
-
 
   return (
     <div>
@@ -50,13 +50,12 @@ function App() {
           {/**Here Private Routes*/}
         </Route>
 
-        <Route path='/' element={<Login />} />
-        <Route path='/Search' element={<Search array={array} />} />
+        <Route path='/' element={<LoginPage />} />
+        <Route path='/Search' element={<SearchPage movies={movies} />} />
         <Route path='/Movie' element={<MoviePage />} />
-        <Route path='/Home' element={<Home />} />
-        <Route path='/Favorites' element={<Favorites />} />
+        <Route path='/Home' element={<HomePage />} />
+        <Route path='/Favorites' element={<FavoritesPage />} />
 
-  
       </Routes>
     </div>
   );
