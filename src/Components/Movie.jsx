@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+
+//Components
 import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios'
 
 //Icons
@@ -11,6 +15,7 @@ const Movie = (props) => {
 
   const navigate = useNavigate();
 
+  //Go to Movie Selected
   const handleClick = () => {
     navigate("/Movie", {
       state: {
@@ -36,15 +41,38 @@ const Movie = (props) => {
     genres: JSON.stringify(props.genres),
     premiered: props.premiered,
     synopsys: props.synopsis,
-    image: props.img ,
+    image: props.img,
     movieId: props.movieId
   })
 
+
+  //Open Snackbar FAVORITE
+  const [open, setOpen] = React.useState(false);
+  //Close Snackbar FAVORITE
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
   //Save as FAVORITE
-  const handleClickFavorite = () =>{
-    iconColor==='white' ? setIconColor("#C48900") : setIconColor('white')
-    console.log('movie added to favorites:',favoriteMovie)
-   
+  const handleClickFavorite = () => {
+    setOpen(true)
+    iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
+    console.log('movie added to favorites:', favoriteMovie)
     axios
         .post('http://localhost:8080/favorites/', favoriteMovie )
         .then(({ data }) => {
@@ -53,6 +81,7 @@ const Movie = (props) => {
         .catch(({ response }) => {
           console.log(response)
         })
+  
   }
 
   return (
@@ -62,18 +91,31 @@ const Movie = (props) => {
         </img>
 
         <div>
-          { props.href==="SearchPage" ? 
-          (
-          <IconButton onClick={handleClickFavorite} style={{ float: 'left' }}>
-            <FontAwesomeIcon style={{ width: '20px', float:'left', color: iconColor }}
-              inverse icon={regular('star')} />
-          </IconButton>
-          )
-          : 
-          null
+          {props.href === "SearchPage" ?
+            (
+              <IconButton onClick={handleClickFavorite} style={{ float: 'left' }}>
+                <FontAwesomeIcon style={{ width: '20px', float: 'left', color: iconColor }}
+                  inverse icon={regular('star')} />
+              </IconButton>
+            )
+            :
+            null
           }
           <h6 style={{ textAlign: 'right', fontSize: '14px', padding: '0px', marginTop: '12px' }}>{props.name}</h6>
         </div>
+        <Snackbar
+          ContentProps={{
+            sx: {
+              fontFamily:'Nunito',
+              backgroundColor: "#C48900",
+            }
+          }}
+          open={open}
+          autoHideDuration={3000}
+          onClose={handleClose}
+          message="Pelicula añadida a mis Favoritos!"
+          action={action}
+        />
       </div>
     </>
   )
