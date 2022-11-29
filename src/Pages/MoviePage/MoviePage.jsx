@@ -16,14 +16,6 @@ const MoviePage = (props) => {
 
     const navigate = useNavigate();
 
-    const [newComment, setNewComment] = useState('')
-    const handleChangeNewComment = (e) => setNewComment(e.target.value)
-
-    const handleClickNewComment = () => {
-        console.log(newComment)
-        setNewComment('')
-    }
-
     const { state } = useLocation();
     const { name } = state || {};
     const { language } = state || {};
@@ -32,28 +24,53 @@ const MoviePage = (props) => {
     const { synopsis } = state || {};
     const { img } = state || {};
     const { href } = state || {};
-    const { id } = state || {};
+    const { movieId } = state || {};
+    const { userId } = state || {};
+    const { userName } = state || {};
 
-    //console.log('movie id',id)
+    // New comment to POST
+    const [comment, setComment] = useState('')
+    const [UserName, setUserName] = useState(userName)
+    const [UserId, setUserId] = useState(userId)
+    //const [movieId, setMovieId] = useState('')
+
+    const handleChangeComment = (e) => setComment(e.target.value)
+    const handleClickComment = () => {
+
+        //console.log(comment)
+        axios
+            .post('http://localhost:8080/comments', { movieId, comment, UserName, UserId })
+            .then(({ data }) => {
+                console.log(data)
+                setComment('')
+            })
+            .catch(({ response }) => {
+                console.log(response)
+                alert('Bad request')
+            })
+    }
+
 
     //API data ( GET--ALL MOVIES-- )
-    const [comments,setComments] = useState([])
+    const [comments, setComments] = useState([])
     const getComments = async () => {
         await
             axios
-                .get(`http://localhost:8080/comments/${id}`)
+                .get(`http://localhost:8080/comments/${movieId}`)
                 .then(({ data }) => {
-                    console.log(data)
+                    //console.log(data)
                     setComments(data)
+                    //console.log(comments)
                 })
                 .catch(({ response }) => {
                     console.log(response)
                 })
     }
-    useEffect(()=>{
+    useEffect(() => {
         getComments();
-    },[])
+    }, [])
 
+    //Go back FUNCTION
     const handleClick = () => {
         if (href === "SearchPage") {
             navigate("/Search")
@@ -113,32 +130,39 @@ const MoviePage = (props) => {
                     </hr>
                     <h5 style={{ textAlign: 'center' }}>Comentarios</h5>
                 </div>
-                <TextField
-                    size="small"
-                    onChange={handleChangeNewComment}
-                    value={newComment}
-                    placeholder="Dejar un comentario"
-                    InputProps={{
-                        style:
-                        {
-                            color: 'white',
-                            fontSize: '14',
-                            fontFamily: 'Nunito',
-                        }
-                    }}
-                    style={{ maxWidth: '600px', margin: 'auto', width: '100%', height: '50px' }}
-                    multiline />
-                <Button onClick={handleClickNewComment}
-                    size="small"
-                    style={{
-                        marginTop: '20px', width: '40px', fontFamily: 'Nunito',
-                        backgroundColor: 'transparent', color: '#C48900', margin: 'auto', float: 'left'
-                    }}
-                    variant="contained">
-                    Publicar
-                </Button>
+                <div style={{display:'flex', alignItems:'center', flexDirection:'column', justifyContent:'row'}}>
+                    <TextField
+                        rows={4}
+                        size="small"
+                        onChange={handleChangeComment}
+                        value={comment}
+                        placeholder="Dejar un comentario"
+                        InputProps={{
+                            style:
+                            {
+                                color: 'white',
+                                fontSize: '14',
+                                fontFamily: 'Nunito',
+                            }
+                        }}
+                        style={{ maxWidth: '600px', margin: 'auto', width: '100%', marginBottom:'10px' }}
+                        multiline />
+                    <Button
+                        onClick={handleClickComment}
+                        size="small"
+                        style={{
+                            marginTop: '40px', width: '50px', padding:'5px', fontFamily: 'Nunito', margin: 'auto',
+                            backgroundColor: 'transparent', color: '#C48900', float: 'left', marginTop: '100px'
+                        }}
+                        variant="contained">
+                        Publicar
+                    </Button>
+                </div>
                 {
-                    comments.map((comment) => { return (<Comentario user={comment.movieId} comment={comment.comment} />) })
+                    comments.map((comment) => {
+                        return (<Comentario UserName={comment.UserName} movieId={comment.movieId}
+                            comment={comment.comment} />)
+                    })
                 }
             </div>
         </>

@@ -14,7 +14,9 @@ const Movie = (props) => {
   const handleClick = () => {
     navigate("/Movie", {
       state: {
-        id: props.id,
+        userId: props.userId,
+        userName: props.userName,
+        movieId: props.movieId,
         href: props.href,
         name: props.name,
         language: props.language,
@@ -26,27 +28,27 @@ const Movie = (props) => {
     })
   }
 
-  const [favoriteMovie, setFavoriteMovie] = useState({})
   const [iconColor, setIconColor] = useState('white');
+  const [favoriteMovie, setFavoriteMovie] = useState({
+    userId: props.userId,
+    name: props.name,
+    language: props.language,
+    genres: JSON.stringify(props.genres),
+    premiered: props.premiered,
+    synopsys: props.synopsis,
+    image: props.img ,
+    movieId: props.movieId
+  })
 
   //Save as FAVORITE
   const handleClickFavorite = () =>{
     iconColor==='white' ? setIconColor("#C48900") : setIconColor('white')
-    setFavoriteMovie({ 
-        userId: props.userId,
-        name: props.name,
-        language: props.language,
-        genres: JSON.stringify(props.genres),
-        premiered: props.premiered,
-        synopsys: props.synopsis,
-        image: props.img ,
-        movieId: props.id
-    })
+    console.log('movie added to favorites:',favoriteMovie)
    
     axios
         .post('http://localhost:8080/favorites/', favoriteMovie )
         .then(({ data }) => {
-          console.log('Sucessfully saved',data)
+          //console.log('Sucessfully saved',data)
         })
         .catch(({ response }) => {
           console.log(response)

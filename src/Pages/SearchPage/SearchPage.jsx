@@ -8,6 +8,7 @@ const SearchPage = (props) => {
   
   //console.log('Movies list',props.movies)
   const [searchResults,setSearchResults] = useState(props.movies)
+  //console.log('search results',searchResults)
  
   //const content = searchResults?.length ? searchResults : <article><p>No matching posts</p></article> 
 
@@ -51,8 +52,9 @@ const SearchPage = (props) => {
                   <Movie
                     href="SearchPage"
                     key={movie.name}
-                    id={movie.show.id}
-                    idUser={props.userId}
+                    movieId={movie.show.id}
+                    userId={props.userId}
+                    userName={props.userName}
                     name={movie.show.name}
                     language={movie.show.language}
                     genres={movie.show.genres}

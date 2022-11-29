@@ -42,8 +42,10 @@ const FavoritesPage = (props) => {
                 return (
                   <Movie
                     href="FavoritesPage"
+                    userId={props.userId}
+                    userName={props.userName}
                     key={movie.name}
-                    id={movie.movieId}
+                    movieId={movie.movieId}
                     name={movie.name}
                     language={movie.language}
                     genres={movie.genres}

@@ -46,6 +46,7 @@ const Navbar = () => {
 
   const handleClickExit = () => {
     sessionStorage.setItem('isLogged', false)
+    sessionStorage.clear()
     setIsSelected2(false)
     setIsSelected3(false)
     setIsSelected(true)

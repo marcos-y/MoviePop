@@ -23,6 +23,7 @@ function App() {
   const [movies, setMovies] = useState([])
   const [favoriteMovies, setFavoriteMovies] = useState([])
   const [userId, setUserId] = useState(0)
+  const [userName, setUserName] = useState('')
 
   //API data ( GET--ALL MOVIES-- )
   const getAllMovies = async () => {
@@ -42,6 +43,7 @@ function App() {
   const getFavoriteMovies = async () => {
   
     setUserId(sessionStorage.getItem('userId'))
+    setUserName(sessionStorage.getItem('name'))
     await
       axios
         .get(`http://localhost:8080/favorites/${userId}`)
@@ -68,10 +70,10 @@ function App() {
 
         <Route element={<PrivateRoutes />} >
           {/*Here Private Routes*/}
-          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} />} />
           <Route path='/Movie' element={<MoviePage />} />
           <Route path='/Home' element={<HomePage />} />
-          <Route path='/Favorites' element={<FavoritesPage favoriteMovies={favoriteMovies} />} />
+          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} userName={userName}/>} />
+          <Route path='/Favorites' element={<FavoritesPage favoriteMovies={favoriteMovies} userId={userId} userName={userName} />} />
         </Route>
       </Routes>
     </div>
