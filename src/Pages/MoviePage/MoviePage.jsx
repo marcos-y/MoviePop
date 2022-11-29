@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 //Icons
 import IconButton from '@mui/material/IconButton'
@@ -31,32 +32,37 @@ const MoviePage = (props) => {
     const { synopsis } = state || {};
     const { img } = state || {};
     const { href } = state || {};
+    const { id } = state || {};
+
+    //console.log('movie id',id)
+
+    //API data ( GET--ALL MOVIES-- )
+    const [comments,setComments] = useState([])
+    const getComments = async () => {
+        await
+            axios
+                .get(`http://localhost:8080/comments/${id}`)
+                .then(({ data }) => {
+                    console.log(data)
+                    setComments(data)
+                })
+                .catch(({ response }) => {
+                    console.log(response)
+                })
+    }
+    useEffect(()=>{
+        getComments();
+    },[])
 
     const handleClick = () => {
-        if(href==="SearchPage"){
+        if (href === "SearchPage") {
             navigate("/Search")
-        }else{
+        } else {
             navigate("/Favorites")
         }
     }
 
     var summary = synopsis.replace(/<[^>]+>/g, '');
-
-    //Receive comments from DB
-    const comments = [
-        {
-            user: 'John',
-            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        },
-        {
-            user: 'Mark',
-            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        },
-        {
-            user: 'Elon',
-            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        },
-    ]
 
     return (
         <>
@@ -108,7 +114,7 @@ const MoviePage = (props) => {
                     <h5 style={{ textAlign: 'center' }}>Comentarios</h5>
                 </div>
                 <TextField
-                size="small"
+                    size="small"
                     onChange={handleChangeNewComment}
                     value={newComment}
                     placeholder="Dejar un comentario"
@@ -120,19 +126,19 @@ const MoviePage = (props) => {
                             fontFamily: 'Nunito',
                         }
                     }}
-                    style={{ maxWidth: '600px', margin: 'auto', width: '100%', height:'50px' }}
+                    style={{ maxWidth: '600px', margin: 'auto', width: '100%', height: '50px' }}
                     multiline />
                 <Button onClick={handleClickNewComment}
                     size="small"
                     style={{
                         marginTop: '20px', width: '40px', fontFamily: 'Nunito',
-                        backgroundColor: 'transparent', color: '#C48900',margin:'auto', float:'left'
+                        backgroundColor: 'transparent', color: '#C48900', margin: 'auto', float: 'left'
                     }}
                     variant="contained">
                     Publicar
                 </Button>
                 {
-                    comments.map((comment) => { return (<Comentario user={comment.user} comment={comment.comment} />) })
+                    comments.map((comment) => { return (<Comentario user={comment.movieId} comment={comment.comment} />) })
                 }
             </div>
         </>

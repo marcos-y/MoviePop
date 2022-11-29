@@ -46,6 +46,9 @@ const Navbar = () => {
 
   const handleClickExit = () => {
     sessionStorage.setItem('isLogged', false)
+    setIsSelected2(false)
+    setIsSelected3(false)
+    setIsSelected(true)
     navigate("/")
   }
 

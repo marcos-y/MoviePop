@@ -43,6 +43,7 @@ const FavoritesPage = (props) => {
                   <Movie
                     href="FavoritesPage"
                     key={movie.name}
+                    id={movie.movieId}
                     name={movie.name}
                     language={movie.language}
                     genres={movie.genres}

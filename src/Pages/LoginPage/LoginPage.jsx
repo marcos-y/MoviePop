@@ -13,7 +13,7 @@ import icon from '../../Images/movie_icon.svg'
 //Navigate
 import { useNavigate } from "react-router-dom"
 
-const LoginPage = () => {
+const LoginPage = (props) => {
 
   const navigate = useNavigate();
 
@@ -29,13 +29,14 @@ const LoginPage = () => {
 
   const handleClick = () => {
     //console.log('user:', UserName, 'password:', UserPassword)
-    
     axios
       .post('http://localhost:8080/users', { UserName, UserPassword })
       .then(({ data }) => {
-        //console.log('Sucessfully logged')
+        //console.log('Sucessfully logged',data)
+        sessionStorage.setItem('userId',data.id)
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
+        props.setUserId(data.id)
         navigate('/Home')
       })
       .catch(({ response }) => {

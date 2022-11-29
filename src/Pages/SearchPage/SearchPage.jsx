@@ -51,12 +51,14 @@ const SearchPage = (props) => {
                   <Movie
                     href="SearchPage"
                     key={movie.name}
+                    id={movie.show.id}
+                    idUser={props.userId}
                     name={movie.show.name}
                     language={movie.show.language}
                     genres={movie.show.genres}
                     premiered={movie.show.premiered}
                     synopsis={movie.show.summary}
-                    img={movie.show.image} />
+                    img={movie.show.image.original} />
                   )
                 })
               }

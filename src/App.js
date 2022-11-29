@@ -22,9 +22,10 @@ function App() {
 
   const [movies, setMovies] = useState([])
   const [favoriteMovies, setFavoriteMovies] = useState([])
+  const [userId, setUserId] = useState(0)
 
   //API data ( GET--ALL MOVIES-- )
-  const getMovies = async () => {
+  const getAllMovies = async () => {
     await
       axios
         .get('https://api.tvmaze.com/search/shows?q=star%20wars')
@@ -39,12 +40,14 @@ function App() {
 
   //API data ( GET--FAVORITE MOVIES--)
   const getFavoriteMovies = async () => {
+  
+    setUserId(sessionStorage.getItem('userId'))
     await
       axios
-        .get('http://localhost:8080/favorites/1')
+        .get(`http://localhost:8080/favorites/${userId}`)
         .then(({ data }) => {
           setFavoriteMovies(data)
-          //console.log('Movie list:',movies)
+          //console.log('Favorite Movie list:',data)
         })
         .catch(({ response }) => {
           console.log(response)
@@ -52,20 +55,20 @@ function App() {
   }
 
   useEffect(() => {
-    getMovies()
+    getAllMovies()
     getFavoriteMovies()
-  }, [])
+  }, [userId])
 
   return (
     <div>
       <Navbar />
       <Routes>
         {/*Here Public Routes*/}
-        <Route path='/' element={<LoginPage />} />
+        <Route path='/' element={<LoginPage setUserId={setUserId} />} />
 
         <Route element={<PrivateRoutes />} >
           {/*Here Private Routes*/}
-          <Route path='/Search' element={<SearchPage movies={movies} />} />
+          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} />} />
           <Route path='/Movie' element={<MoviePage />} />
           <Route path='/Home' element={<HomePage />} />
           <Route path='/Favorites' element={<FavoritesPage favoriteMovies={favoriteMovies} />} />
