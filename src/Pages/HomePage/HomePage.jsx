@@ -16,7 +16,7 @@ const Home = () => {
         }}
       >
       <img style={{ maxWidth:'332px' }} src={img}></img>
-      <h1 style={{ color: '#C48900', fontFamily: 'Nunito' }} align="center">
+      <h1 style={{ color: '#C48900', fontFamily: 'Nunito',fontWeight: '700' }} align="center">
           MoviePop!
       </h1>
       </div>

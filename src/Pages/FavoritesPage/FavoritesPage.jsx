@@ -21,7 +21,7 @@ const FavoritesPage = (props) => {
           backgroundColor: 'transparent '
         }}
       >
-        <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Mis peliculas favoritas</h5>
+        <h5 style={{ fontFamily: 'Nunito', color: 'white',fontWeight: '700' }}>Mis peliculas favoritas</h5>
         <hr style={{
           marginTop: '12px',
           width: '93%',

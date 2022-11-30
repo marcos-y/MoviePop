@@ -100,17 +100,19 @@ const MoviePage = (props) => {
                     <img src={img.original || img} style={{ width: '100%' }} ></img>
 
                     <div style={{ fontFamily: 'Nunito' }}>
-                        <h5 style={{ textAlign: 'center', fontSize: '20px' }}>Título: {name}</h5>
+                        <h5 style={{ textAlign: 'center', fontSize: '20px',fontweight:'700'  }}>Título: {name}</h5>
                         <div>
-                            <h6 style={{ padding: '2px', margin: '2px' }} >Lenguaje: {language}</h6>
-                            <h6 style={{ padding: '2px', margin: '2px' }}>Géneros: {genres}</h6>
-                            <h6 style={{ padding: '2px', margin: '2px' }}>Fecha de estreno: {premiered}</h6>
+                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14' }} >Lenguaje: {language}</h6>
+                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14'  }}>Géneros: {genres}</h6>
+                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14'  }}>Fecha de estreno: {premiered}</h6>
                         </div>
                     </div>
 
-                    <div style={{ fontFamily: 'Nunito' }}>
-                        <h5 style={{ textAlign: 'center', fontSize: '20px' }}>Sinopsis:</h5>
-                        <div style={{ fontSize: '14px' }}>
+                    <div>
+                        <h5 style={{ textAlign: 'center', fontSize: '20px', fontWeight:'700',fontFamily: 'Nunito' }}>
+                            Sinopsis:
+                        </h5>
+                        <div style={{ fontSize: '14px',fontFamily: 'Nunito',fontWeight:'normal' }}>
                             {summary}
                         </div>
                     </div>
@@ -129,7 +131,7 @@ const MoviePage = (props) => {
                         color: 'black'
                     }}>
                     </hr>
-                    <h5 style={{ textAlign: 'center' }}>Comentarios</h5>
+                    <h5 style={{ textAlign: 'left' }}>Comentarios</h5>
                 </div>
                 <div style={{display:'flex', alignItems:'center', flexDirection:'column', justifyContent:'row'}}>
                     <TextField
@@ -144,9 +146,10 @@ const MoviePage = (props) => {
                                 color: 'white',
                                 fontSize: '14',
                                 fontFamily: 'Nunito',
+                                fontWeight:'normal'
                             }
                         }}
-                        style={{ maxWidth: '600px', margin: 'auto', width: '100%', marginBottom:'10px' }}
+                        style={{ maxWidth: '600px', margin: 'auto', width: '100%', marginBottom:'10px', fontWeight:'normal' }}
                         multiline />
                     <Button
                         onClick={handleClickAddComment}

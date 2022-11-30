@@ -23,7 +23,7 @@ export default function BasicTextFields(props) {
             fontFamily:'Nunito'
           }
         }}
-        InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px' } }}
+        InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px',fontWeight: '300' } }}
         onChange={props.onChange}
         value={props.value}
         size="small"

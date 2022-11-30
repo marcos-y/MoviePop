@@ -28,7 +28,7 @@ const SearchPage = (props) => {
         }}
       >
         <SearchBar movies={props.movies}  setSearchResults={setSearchResults}/>
-        <h5 style={{ fontFamily: 'Nunito', color: 'white' }}>Peliculas</h5>
+        <h5 style={{ fontFamily: 'Nunito', color: 'white',fontWeight: '700' }}>Peliculas</h5>
         <hr style={{
           marginTop: '12px',
           width: '93%',

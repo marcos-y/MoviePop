@@ -70,10 +70,9 @@ const LoginPage = (props) => {
         <hr style={{ 
           marginTop:'30px',
           width: '70%',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          backgroundColor:'black',
-          color:'black'
+          background:'#808080',
+          backgroundColor:'#808080',
+          height:'0.5px'
         }}>
         </hr>
         <h6 style={{ fontFamily:'Nunito'}} align="center">
