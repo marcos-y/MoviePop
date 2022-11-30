@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 //Components
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '../Components/Snackbar'
-import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios'
 
 //Icons
@@ -80,7 +79,7 @@ const Movie = (props) => {
 
   return (
     <>
-      <div style={{ padding: '10px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '8px', display: 'flex', flexDirection: 'column' }}>
         <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img} 
         width="183px" height="199px">
         </img>

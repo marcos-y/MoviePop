@@ -5,30 +5,35 @@ import Movie from '../../Components/Movie'
 import SearchBar from '../../Components/SearchBar'
 
 const SearchPage = (props) => {
-  
-  const [searchResults,setSearchResults] = useState(props.movies)
+
+  const [searchResults, setSearchResults] = useState(props.movies)
   //console.log('search results',searchResults)
- 
+
   //const content = searchResults?.length ? searchResults : <article><p>No matching posts</p></article> 
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <div
         style={{
           marginTop: '200px',
-          margin: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
           maxWidth: '900px',
           width: '100%',
           height: 'auto',
           padding: '20px',
-          backgroundColor: 'transparent '
+          backgroundColor: 'transparent ',
+          margin: 'auto',
+          display: 'flex',
+          flexDirection: 'column', 
+          justifyContent:'center',
+          alignItems: 'center',
         }}
       >
-        <SearchBar movies={props.movies}  setSearchResults={setSearchResults}/>
-        <h5 style={{ fontFamily: 'Nunito', color: 'white',fontWeight: '700' }}>Peliculas</h5>
+        <SearchBar movies={props.movies} setSearchResults={setSearchResults} />
+        <h5 style={{ 
+          fontFamily: 'Nunito', 
+          color: 'white',
+          fontWeight: '700' }}>
+            Peliculas
+        </h5>
         <hr style={{
           marginTop: '12px',
           width: '93%',
@@ -40,35 +45,37 @@ const SearchPage = (props) => {
         </hr>
 
         <div style={{
-          display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
-          fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap', minWidth: '200px'
+          minWidth: '415px',
+          width: '100%',
+          color: 'white',
+          fontFamily: 'Nunito',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent:'center',
+          flexDirection:'row'
         }}>
-            <div style={{ display: 'flex', maxWidth:'1000px', flexWrap:'wrap',justifyContent:'center'
-            ,minWidth:'415px' }}>
-              {
-              searchResults.map((movie) => {
-                return (
-                  <Movie
-                    favoriteMovies={props.favoriteMovies}
-                    setFavoriteMovies={props.setFavoriteMovies}
-                    href="SearchPage"
-                    key={movie.name}
-                    movieId={movie.show.id}
-                    userId={props.userId}
-                    userName={props.userName}
-                    name={movie.show.name}
-                    language={movie.show.language}
-                    genres={movie.show.genres}
-                    premiered={movie.show.premiered}
-                    synopsis={movie.show.summary}
-                    img={movie.show.image.original} />
-                  )
-                })
-              }
-            </div>
+          {
+            searchResults.map((movie) => {
+              return (
+                <Movie
+                  key={movie.name}
+                  favoriteMovies={props.favoriteMovies}
+                  setFavoriteMovies={props.setFavoriteMovies}
+                  href="SearchPage"
+                  movieId={movie.show.id}
+                  userId={props.userId}
+                  userName={props.userName}
+                  name={movie.show.name}
+                  language={movie.show.language}
+                  genres={movie.show.genres}
+                  premiered={movie.show.premiered}
+                  synopsis={movie.show.summary}
+                  img={movie.show.image.original} />
+              )
+            })
+          }
         </div>
-    </div>
-    </div>
+      </div>
   )
 }
 

@@ -14,13 +14,20 @@ export default function BasicTextFields(props) {
     >
 
       <TextField
+        sx={{
+          "& .MuiOutlinedInput-root.Mui-focused": {
+            "& > fieldset": {
+            borderColor: "#C48900",
+            }
+          }
+        }}
         InputProps={{ style:
           {
-            borderRadius: window.location.href == 'http://localhost:3000/' ? '0px' : '15px',
-            borderColor:'transparent',
+            borderRadius: '5px',
+            borderColor:'black',
             color:'white',
             fontSize:'14',
-            fontFamily:'Nunito'
+            fontFamily:'Nunito',
           }
         }}
         InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px',fontWeight: '300' } }}

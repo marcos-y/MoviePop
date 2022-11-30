@@ -45,29 +45,38 @@ export default function InputAdornments(props) {
                 noValidate
                 autoComplete="off"
             >
-            <FormControl size="small" sx={{ m: 1, width: '100%' }} variant="outlined">
-                <InputLabel style={{color:'white',fontFamily:'Nunito',fontSize:'14px'}} htmlFor="outlined-adornment-password">Contraseña</InputLabel>
-                <OutlinedInput
-                    style={{fontSize:'14px',fontFamily:'Nunito',fontWeight: '300'}} 
-                    id="outlined-adornment-password"
-                    type={values.showPassword ? 'text' : 'password'}
-                    value={values.password}
-                    onChange={handleChange('password')}
-                    endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                edge="end"
-                            >
-                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    }
-                    label="Contraseña"
-                />
-            </FormControl>
+                <FormControl 
+                    size="small" 
+                    sx={{ m: 1, width: '100%',  "& .MuiOutlinedInput-root.Mui-focused": {
+                                "& > fieldset": {
+                                    borderColor: "#C48900",
+                                }
+                    } }} variant="outlined">
+                    <InputLabel style={{ color: 'white', fontFamily: 'Nunito', fontSize: '14px' }} 
+                    htmlFor="outlined-adornment-password">
+                        Contraseña
+                    </InputLabel>
+                    <OutlinedInput
+                        style={{ fontSize: '14px', fontFamily: 'Nunito', fontWeight: '300' }}
+                        id="outlined-adornment-password"
+                        type={values.showPassword ? 'text' : 'password'}
+                        value={values.password}
+                        onChange={handleChange('password')}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Contraseña"
+                    />
+                </FormControl>
             </Box>
         </>
     )

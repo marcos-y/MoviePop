@@ -6,21 +6,20 @@ import Movie from '../../Components/Movie'
 const FavoritesPage = (props) => {
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <div
         style={{
           marginTop: '200px',
-          margin: 'auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
           maxWidth: '900px',
           width: '100%',
           height: 'auto',
           padding: '20px',
-          backgroundColor: 'transparent '
-        }}
-      >
+          backgroundColor: 'transparent ',
+          margin: 'auto',
+          display: 'flex',
+          flexDirection: 'column', 
+          justifyContent:'center',
+          alignItems: 'center',
+        }}>
         <h5 style={{ fontFamily: 'Nunito', color: 'white',fontWeight: '700' }}>Mis peliculas favoritas</h5>
         <hr style={{
           marginTop: '12px',
@@ -33,11 +32,15 @@ const FavoritesPage = (props) => {
         </hr>
 
         <div style={{
-          display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
-          fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap', minWidth: '200px'
+          minWidth: '415px',
+          width: '100%',
+          color: 'white',
+          fontFamily: 'Nunito',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent:'center',
+          flexDirection:'row'
         }}>
-          <div style={{ display: 'flex', maxWidth: '1000px', flexWrap: 'wrap', justifyContent: 'center', 
-          minWidth: '415px' }}>
             {
               props.favoriteMovies.map((movie) => {
                 return (
@@ -57,9 +60,7 @@ const FavoritesPage = (props) => {
               })
             }
           </div>
-        </div>
       </div>
-    </div>
   )
 }
 
