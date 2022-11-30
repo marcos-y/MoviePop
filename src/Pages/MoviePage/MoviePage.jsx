@@ -51,7 +51,6 @@ const MoviePage = (props) => {
             })
     }
 
-
     //API data ( GET--ALL COMMENTS-- )
     const [comments, setComments] = useState([])
     const getComments = async () => {
