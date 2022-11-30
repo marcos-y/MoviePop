@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 //Components
 import Movie from '../../Components/Movie'
@@ -36,7 +36,8 @@ const FavoritesPage = (props) => {
           display: 'flex', marginTop: '40px', justifyContent: 'center', padding: '5px',
           fontFamily: 'Nunito', color: 'white', flexWrap: 'wrap', minWidth: '200px'
         }}>
-          <div style={{ display: 'flex', maxWidth: '1000px', flexWrap: 'wrap', justifyContent: 'center', minWidth: '415px' }}>
+          <div style={{ display: 'flex', maxWidth: '1000px', flexWrap: 'wrap', justifyContent: 'center', 
+          minWidth: '415px' }}>
             {
               props.favoriteMovies.map((movie) => {
                 return (

@@ -33,6 +33,7 @@ const Movie = (props) => {
     })
   }
 
+  //Set Favorite Movie State
   const [iconColor, setIconColor] = useState('white');
   const [favoriteMovie, setFavoriteMovie] = useState({
     userId: props.userId,
@@ -44,7 +45,6 @@ const Movie = (props) => {
     image: props.img,
     movieId: props.movieId
   })
-
 
   //Open Snackbar FAVORITE
   const [open, setOpen] = React.useState(false);
@@ -73,21 +73,27 @@ const Movie = (props) => {
     setOpen(true)
     iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
     console.log('movie added to favorites:', favoriteMovie)
+    //props.favoriteMovies.push(favoriteMovie)
+    
+    props.favoriteMovies.push(favoriteMovie)
     axios
         .post('http://localhost:8080/favorites/', favoriteMovie )
         .then(({ data }) => {
           //console.log('Sucessfully saved',data)
+          //Push Movie to FavoritesArray
+          props.setFavoriteMovies([...{favoriteMovie}])
         })
         .catch(({ response }) => {
           console.log(response)
         })
-  
   }
+
 
   return (
     <>
       <div style={{ padding: '10px', display: 'flex', flexDirection: 'column' }}>
-        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img} width="183px" height="199px">
+        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img} 
+        width="183px" height="199px">
         </img>
 
         <div>
@@ -101,12 +107,14 @@ const Movie = (props) => {
             :
             null
           }
-          <h6 style={{ textAlign: 'right', fontSize: '14px', padding: '0px', marginTop: '12px' }}>{props.name}</h6>
+          <h6 style={{ textAlign: 'right', fontSize: '14px', padding: '0px', marginTop: '12px' }}>
+            {props.name}
+          </h6>
         </div>
         <Snackbar
           ContentProps={{
             sx: {
-              fontFamily:'Nunito',
+              fontFamily: 'Nunito',
               backgroundColor: "#C48900",
             }
           }}

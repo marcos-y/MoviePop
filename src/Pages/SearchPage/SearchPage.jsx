@@ -6,7 +6,6 @@ import SearchBar from '../../Components/SearchBar'
 
 const SearchPage = (props) => {
   
-  //console.log('Movies list',props.movies)
   const [searchResults,setSearchResults] = useState(props.movies)
   //console.log('search results',searchResults)
  
@@ -50,6 +49,8 @@ const SearchPage = (props) => {
               searchResults.map((movie) => {
                 return (
                   <Movie
+                    favoriteMovies={props.favoriteMovies}
+                    setFavoriteMovies={props.setFavoriteMovies}
                     href="SearchPage"
                     key={movie.name}
                     movieId={movie.show.id}

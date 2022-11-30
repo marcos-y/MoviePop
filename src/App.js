@@ -41,7 +41,6 @@ function App() {
 
   //API data ( GET--FAVORITE MOVIES--)
   const getFavoriteMovies = async () => {
-  
     setUserId(sessionStorage.getItem('userId'))
     setUserName(sessionStorage.getItem('name'))
     await
@@ -72,8 +71,11 @@ function App() {
           {/*Here Private Routes*/}
           <Route path='/Movie' element={<MoviePage />} />
           <Route path='/Home' element={<HomePage />} />
-          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} userName={userName}/>} />
-          <Route path='/Favorites' element={<FavoritesPage favoriteMovies={favoriteMovies} userId={userId} userName={userName} />} />
+          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} 
+            setFavoriteMovies={setFavoriteMovies} favoriteMovies={favoriteMovies}
+            userName={userName}/>} />
+          <Route path='/Favorites' element={<FavoritesPage  userId={userId} favoriteMovies={favoriteMovies}
+            userName={userName} />} />
         </Route>
       </Routes>
     </div>

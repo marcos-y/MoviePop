@@ -35,13 +35,14 @@ const MoviePage = (props) => {
     //const [movieId, setMovieId] = useState('')
 
     const handleChangeComment = (e) => setComment(e.target.value)
-    const handleClickComment = () => {
-
+    const handleClickAddComment = () => {
         //console.log(comment)
+        comments.push({ movieId, comment, UserName, UserId })
         axios
             .post('http://localhost:8080/comments', { movieId, comment, UserName, UserId })
             .then(({ data }) => {
                 console.log(data)
+                {/*ACA HAY QUE AÑADIR AL ARRAY DE COMENTARIOS "comments" THREE DOTS*/}
                 setComment('')
             })
             .catch(({ response }) => {
@@ -51,7 +52,7 @@ const MoviePage = (props) => {
     }
 
 
-    //API data ( GET--ALL MOVIES-- )
+    //API data ( GET--ALL COMMENTS-- )
     const [comments, setComments] = useState([])
     const getComments = async () => {
         await
@@ -148,7 +149,7 @@ const MoviePage = (props) => {
                         style={{ maxWidth: '600px', margin: 'auto', width: '100%', marginBottom:'10px' }}
                         multiline />
                     <Button
-                        onClick={handleClickComment}
+                        onClick={handleClickAddComment}
                         size="small"
                         style={{
                             marginTop: '40px', width: '50px', padding:'5px', fontFamily: 'Nunito', margin: 'auto',
