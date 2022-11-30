@@ -39,7 +39,7 @@ const MoviePage = (props) => {
         //console.log(comment)
         comments.push({ movieId, comment, UserName, UserId })
         axios
-            .post('http://localhost:8080/comments', { movieId, comment, UserName, UserId })
+            .post('https://moviepop-api.onrender.com/comments', { movieId, comment, UserName, UserId })
             .then(({ data }) => {
                 console.log(data)
                 {/*ACA HAY QUE AÑADIR AL ARRAY DE COMENTARIOS "comments" THREE DOTS*/}
@@ -57,7 +57,7 @@ const MoviePage = (props) => {
     const getComments = async () => {
         await
             axios
-                .get(`http://localhost:8080/comments/${movieId}`)
+                .get(`https://moviepop-api.onrender.com/comments/${movieId}`)
                 .then(({ data }) => {
                     //console.log(data)
                     setComments(data)

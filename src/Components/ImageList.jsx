@@ -3,6 +3,7 @@ import * as React from 'react';
 //Components
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import Radium, { StyleRoot } from 'radium';
 
 //Images
 import img1 from '../../src/Images/movie6.jpg'
@@ -14,23 +15,6 @@ import img6 from '../../src/Images/movie1.jpg'
 import img7 from '../../src/Images/movie7.jpg'
 import img8 from '../../src/Images/movie3.jpg'
 import img9 from '../../src/Images/movie9.jpg'
-
-export default function StandardImageList() {
-  return (
-    <ImageList sx={{ width: 500, height: 500 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-  );
-}
 
 const itemData = [
   {
@@ -70,3 +54,35 @@ const itemData = [
     title: 'Mushrooms',
   },
 ];
+
+const StandardImageList = () => {
+
+  const style = {
+      // Adding media query..
+      '@media (max-width: 500px)': {
+        display: 'none',
+      },
+    };
+
+  return (
+    <StyleRoot>
+    <ImageList  sx={{ marginRight:'20px', width: 500, height: 500, overflow: 'hidden', marginTop:'0px',  '@media (max-width: 500px)': {
+        display: 'none',
+      }, }} 
+    cols={3} rowHeight={164}>
+      {itemData.map((item) => (
+        <ImageListItem key={item.img}>
+          <img
+            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            alt={item.title}
+            loading="lazy"
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
+    </StyleRoot>
+  );
+}
+
+export default Radium(StandardImageList);

@@ -66,7 +66,7 @@ const Movie = (props) => {
     //ADD Favorite Movie to FavoriteMoviesArray
     props.favoriteMovies.push(favoriteMovie)
     axios
-        .post('http://localhost:8080/favorites/', favoriteMovie )
+        .post('https://moviepop-api.onrender.com/favorites/', favoriteMovie )
         .then(({ data }) => {
           //console.log('Sucessfully saved',data)
           //Push Movie to FavoritesArray

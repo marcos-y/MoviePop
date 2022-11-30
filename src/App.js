@@ -45,7 +45,7 @@ function App() {
     setUserName(sessionStorage.getItem('name'))
     await
       axios
-        .get(`http://localhost:8080/favorites/${userId}`)
+        .get(`https://moviepop-api.onrender.com/favorites/${userId}`)
         .then(({ data }) => {
           setFavoriteMovies(data)
           //console.log('Favorite Movie list:',data)

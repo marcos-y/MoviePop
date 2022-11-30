@@ -30,7 +30,7 @@ const LoginPage = (props) => {
   const handleClick = () => {
     //console.log('user:', UserName, 'password:', UserPassword)
     axios
-      .post('http://localhost:8080/users', { UserName, UserPassword })
+      .post('https://moviepop-api.onrender.com/users', { UserName, UserPassword })
       .then(({ data }) => {
         //console.log('Sucessfully logged',data)
         sessionStorage.setItem('userId',data.id)
@@ -49,7 +49,7 @@ const LoginPage = (props) => {
     <>
     <div style={{ display:'flex', marginTop:'90px', justifyContent:'center',flexWrap:'wrap' }}>
       <ImageList/>
-      <div style={{ marginLeft:'30px', padding: '10px',borderColor:'black',border:'solid'
+      <div style={{ padding: '10px',borderColor:'black',border:'solid'
       ,borderWidth:'1px', fontFamily:'Nunito',marginBottom:'20px'}}>
         <div style={{ display:'flex',justifyContent:'center',alignItems:'center'}}>
           <h1 style={{ color: '#C48900', fontFamily: 'Nunito' }} align="center">MoviePop!</h1>
