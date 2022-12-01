@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 //Components
 import Movie from '../../Components/Movie'
@@ -7,7 +7,10 @@ import Line from '../../Components/Line'
 
 const SearchPage = (props) => {
 
-  const [searchResults, setSearchResults] = useState(props.movies)
+  const [searchResults, setSearchResults] = useState([])
+  useEffect(()=>{
+    setSearchResults(props.movies)
+  },[props.movies])
   //console.log('search results',searchResults)
 
   //const content = searchResults?.length ? searchResults : <article><p>No matching posts</p></article> 
