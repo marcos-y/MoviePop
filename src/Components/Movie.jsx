@@ -67,6 +67,7 @@ const Movie = (props) => {
 
     //console.log(props)
     const movieExists = props.find(movie => movie.name === movieName)
+    
     //console.log('movieName exists?', movieExists)
     if (movieExists != undefined) {
       alert('Ya añadida a Favoritos')
@@ -76,10 +77,10 @@ const Movie = (props) => {
 
       //Change Icon Favorites Color
       iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
-      //console.log('movie added to favorites:', favoriteMovie)
+      console.log('movie added to favorites:', favoriteMovie)
 
       //ADD Favorite Movie to FavoriteMoviesArray
-      props.favoriteMovies.push(favoriteMovie)
+      props.push(favoriteMovie)
 
       //POST movie in Favorites List
       axios
