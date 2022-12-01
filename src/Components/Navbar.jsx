@@ -12,8 +12,6 @@ const Navbar = () => {
 
   //console.log('window location', window.location.href)
 
-  //Selected buttons
-
   //House Icon State
   const [isSelected, setIsSelected] = useState(false)
 
@@ -56,38 +54,38 @@ const Navbar = () => {
   return (
     <>
       {
-        (( window.location.href === 'https://moviepop.workadmin.com.ar/' || window.location.href === 'https://moviepop.workadmin.com.ar/Movie'  ) 
-        || 
-        (window.location.href === 'http://localhost:3000/'  || window.location.href === 'http://localhost:3000/Movie'  )) 
-        ? null :
-        (
+        ((window.location.href === 'https://moviepop.workadmin.com.ar/' || window.location.href === 'https://moviepop.workadmin.com.ar/Movie')
+          ||
+          (window.location.href === 'http://localhost:3000/' || window.location.href === 'http://localhost:3000/Movie'))
+          ? null :
+          (
             <div style={{
-                 margin:'auto', 
-                 maxWidth:'850px',
-                 marginTop: '10px',
-                 width: '100%', 
-                 backgroundColor: 'transparent ',
-                 height: '60px'
+              margin: 'auto',
+              maxWidth: '850px',
+              marginTop: '10px',
+              width: '100%',
+              backgroundColor: 'transparent ',
+              height: '60px'
             }}>
-              <div style={{ float:'right' }}>
+              <div style={{ float: 'right' }}>
 
-              <IconButton onClick={handleClickHouseIcon} >
-                  <FontAwesomeIcon style={{ width: '33px', height:'26', color: isSelected ? '#C48900' : 'white' }}
+                <IconButton onClick={handleClickHouseIcon} >
+                  <FontAwesomeIcon style={{ width: '33px', height: '26', color: isSelected ? '#C48900' : 'white' }}
                     inverse icon={solid('house-chimney')} />
                 </IconButton>
 
                 <IconButton onClick={handleClickStar} >
-                  <FontAwesomeIcon style={{ width: '33px', height:'26',color: isSelected3 ? '#C48900' : 'white' }}
+                  <FontAwesomeIcon style={{ width: '33px', height: '26', color: isSelected3 ? '#C48900' : 'white' }}
                     inverse icon={solid('star')} />
                 </IconButton>
-                
+
                 <IconButton onClick={handleClickGlass} >
-                  <FontAwesomeIcon style={{ width: '27px', height:'27', color: isSelected2 ? '#C48900' : 'white' }}
+                  <FontAwesomeIcon style={{ width: '27px', height: '27', color: isSelected2 ? '#C48900' : 'white' }}
                     inverse icon={solid('magnifying-glass')} />
                 </IconButton>
 
                 <IconButton onClick={handleClickExit} >
-                  <FontAwesomeIcon style={{ width: '28px', height:'27' ,color: 'white' }}
+                  <FontAwesomeIcon style={{ width: '28px', height: '27', color: 'white' }}
                     inverse icon={solid('right-from-bracket')} />
                 </IconButton>
 
