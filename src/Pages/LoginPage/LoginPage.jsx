@@ -33,7 +33,7 @@ const LoginPage = (props) => {
       .post('https://moviepop-api.onrender.com/users', { UserName, UserPassword })
       .then(({ data }) => {
         //console.log('Sucessfully logged',data)
-        sessionStorage.setItem('userId',data.id)
+        sessionStorage.setItem('userId', data.id)
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
         props.setUserId(data.id)
@@ -47,39 +47,48 @@ const LoginPage = (props) => {
 
   return (
     <>
-    <div style={{ display:'flex', marginTop:'90px', justifyContent:'center',flexWrap:'wrap' }}>
-      <ImageList/>
-      <div style={{ padding: '10px',borderColor:'black',border:'solid'
-      ,borderWidth:'1px', fontFamily:'Nunito',marginBottom:'20px'}}>
-        <div style={{ display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <h1 style={{ color: '#C48900', fontFamily: 'Nunito' }} align="center">MoviePop!</h1>
-          <img style={{ width:'40px',height:'40px',marginLeft:'15px'}} src={icon}></img>
-        </div>
-        
-        <TextField id="1" onChange={handleChangeUserName} value={UserName} label="Usuario" 
-        style={{  width:'100%', height:'50px', backgroundColor:'transparent'}}/>
-
-        <PasswordTextField setPassword={setUserPassword}/>
-        
-        <Button onClick={handleClick} 
-        style={{ marginTop:'20px', width:'100%', fontFamily:'Nunito',
-        backgroundColor:'transparent',color:'#C48900'}} 
-        variant="contained">
-          Entrar
-        </Button>
-        <hr style={{ 
-          marginTop:'30px',
-          width: '70%',
-          background:'#808080',
-          backgroundColor:'#808080',
-          height:'0.5px'
+      <div style={{ display: 'flex', marginTop: '90px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <ImageList />
+        <div style={{
+          padding: '10px',
+          borderColor: 'black',
+          border: 'solid',
+          borderWidth: '1px',
+          fontFamily: 'Nunito',
+          marginBottom: '20px'
         }}>
-        </hr>
-        <h6 style={{ fontFamily:'Nunito'}} align="center">
-          ¿ Has olvidado la contraseña ?
-        </h6>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <h1 style={{ color: '#C48900', fontFamily: 'Nunito' }} align="center">MoviePop!</h1>
+            <img style={{ width: '40px', height: '40px', marginLeft: '15px' }} src={icon}></img>
+          </div>
+
+          <TextField id="1" onChange={handleChangeUserName} value={UserName} label="Usuario"
+            style={{ width: '100%', height: '50px', backgroundColor: 'transparent' }} />
+
+          <PasswordTextField setPassword={setUserPassword} />
+
+          <Button onClick={handleClick}
+            style={{
+              marginTop: '20px', width: '100%', fontFamily: 'Nunito',
+              backgroundColor: 'transparent', color: '#C48900'
+            }}
+            variant="contained">
+            Entrar
+          </Button>
+          <hr style={{
+            opacity: '0.09000000357627869',
+            marginTop: '30px',
+            width: '70%',
+            background: '#808080',
+            backgroundColor: '#808080',
+            height: '0.5px'
+          }}>
+          </hr>
+          <h6 style={{ fontFamily: 'Nunito' }} align="center">
+            ¿ Has olvidado la contraseña ?
+          </h6>
+        </div>
       </div>
-    </div>
     </>
   )
 }

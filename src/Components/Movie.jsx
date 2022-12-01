@@ -14,8 +14,12 @@ const Movie = (props) => {
 
   const navigate = useNavigate();
 
+  //SAVE movieName State
+  const [movieName, setMovieName] = useState(props.name)
+  //console.log(movieName)
+
   //Go to Movie Selected
-  const handleClick = () => {
+  const handleClick = (props) => {
     navigate("/Movie", {
       state: {
         userId: props.userId,
@@ -54,48 +58,67 @@ const Movie = (props) => {
     }
     setOpen(false);
   };
-  
+
 
   //Save as FAVORITE
-  const handleClickFavorite = () => {
-    setOpen(true)
-    iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
-    console.log('movie added to favorites:', favoriteMovie)
- 
-    //ADD Favorite Movie to FavoriteMoviesArray
-    props.favoriteMovies.push(favoriteMovie)
-    axios
-        .post('https://moviepop-api.onrender.com/favorites/', favoriteMovie )
+  const handleClickFavorite = (props) => {
+    {/*Primero hay que comprobar si ya esta o no añadida*/ }
+
+    //console.log(props)
+    const movieExists = props.find(movie => movie.name === movieName)
+    //console.log('movieName exists?', movieExists)
+    if (movieExists != undefined) {
+      alert('Ya añadida a Favoritos')
+    } else {
+      //*Open Snackbar*
+      setOpen(true)
+
+      //Change Icon Favorites Color
+      iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
+      //console.log('movie added to favorites:', favoriteMovie)
+
+      //ADD Favorite Movie to FavoriteMoviesArray
+      props.favoriteMovies.push(favoriteMovie)
+
+      //POST movie in Favorites List
+      axios
+        .post('https://moviepop-api.onrender.com/favorites/', favoriteMovie)
         .then(({ data }) => {
           //console.log('Sucessfully saved',data)
           //Push Movie to FavoritesArray
-          props.setFavoriteMovies([...{favoriteMovie}])
+          props.setFavoriteMovies([...{ favoriteMovie }])
         })
         .catch(({ response }) => {
           console.log(response)
         })
+    }
   }
 
 
   return (
     <>
-      <div style={{ padding: '8px', display: 'flex', flexDirection: 'column' }}>
-        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img} 
-        width="183px" height="199px">
+      <div style={{ padding: '8px', display: 'flex', flexDirection: 'column', maxWidth: '182px', height: 'auto' }}>
+        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img}
+          width="100%" >
         </img>
 
         <div>
           {props.href === "SearchPage" ?
             (
-              <IconButton onClick={handleClickFavorite} style={{ float: 'left' }}>
+              <IconButton onClick={() => handleClickFavorite(props.favoriteMovies)} style={{ float: 'left' }}>
                 <FontAwesomeIcon style={{ width: '20px', float: 'left', color: iconColor }}
-                  inverse icon={regular('star')} />
+                  inverse icon={solid('bookmark')} />
               </IconButton>
             )
             :
-            null
+            (
+            <IconButton onClick={() => handleClickFavorite(props.favoriteMovies)} style={{ float: 'left' }}>
+                <FontAwesomeIcon style={{ width: '20px', float: 'left', color: iconColor }}
+                  inverse icon={solid('trash')} />
+              </IconButton>
+            )
           }
-          <h6 style={{ textAlign: 'right', fontSize: '14px',fontWeight: '700', padding: '0px', marginTop: '12px' }}>
+          <h6 style={{ textAlign: 'right', fontSize: '14px', fontWeight: '700', padding: '0px', marginTop: '12px' }}>
             {props.name}
           </h6>
         </div>

@@ -58,27 +58,37 @@ const Navbar = () => {
       {
         (window.location.href === 'http://localhost:3000/Movie' || window.location.href === 'http://localhost:3000/') ? null :
           (
-            <div style={{ marginTop: '10px', width: '100%', backgroundColor: 'transparent ', height: '60px' }}>
+            <div style={{
+                 margin:'auto', 
+                 maxWidth:'850px',
+                 marginTop: '10px',
+                 width: '100%', 
+                 backgroundColor: 'transparent ',
+                 height: '60px'
+            }}>
+              <div style={{ float:'right' }}>
 
-              <IconButton onClick={handleClickExit} style={{ marginRight: '14px', float: 'right' }}>
-                <FontAwesomeIcon style={{ width: '27px', color: 'white' }}
-                  inverse icon={solid('right-from-bracket')} />
-              </IconButton>
+              <IconButton onClick={handleClickHouseIcon} >
+                  <FontAwesomeIcon style={{ width: '33px', height:'26', color: isSelected ? '#C48900' : 'white' }}
+                    inverse icon={solid('house-chimney')} />
+                </IconButton>
 
-              <IconButton onClick={handleClickGlass} style={{ marginRight: '14px', float: 'right' }}>
-                <FontAwesomeIcon style={{ width: '27px', color: isSelected2 ? '#C48900' : 'white' }}
-                  inverse icon={solid('magnifying-glass')} />
-              </IconButton>
+                <IconButton onClick={handleClickStar} >
+                  <FontAwesomeIcon style={{ width: '33px', height:'26',color: isSelected3 ? '#C48900' : 'white' }}
+                    inverse icon={solid('star')} />
+                </IconButton>
+                
+                <IconButton onClick={handleClickGlass} >
+                  <FontAwesomeIcon style={{ width: '27px', height:'27', color: isSelected2 ? '#C48900' : 'white' }}
+                    inverse icon={solid('magnifying-glass')} />
+                </IconButton>
 
-              <IconButton onClick={handleClickStar} style={{ marginRight: '14px', float: 'right' }}>
-                <FontAwesomeIcon style={{ width: '27px', color: isSelected3 ? '#C48900' : 'white' }}
-                  inverse icon={solid('star')} />
-              </IconButton>
+                <IconButton onClick={handleClickExit} >
+                  <FontAwesomeIcon style={{ width: '28px', height:'27' ,color: 'white' }}
+                    inverse icon={solid('right-from-bracket')} />
+                </IconButton>
 
-              <IconButton onClick={handleClickHouseIcon} style={{ marginRight: '14px', float: 'right' }}>
-                <FontAwesomeIcon style={{ width: '27px', color: isSelected ? '#C48900' : 'white' }}
-                  inverse icon={solid('house-chimney')} />
-              </IconButton>
+              </div>
             </div>
           )
       }

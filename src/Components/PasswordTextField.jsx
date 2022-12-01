@@ -40,24 +40,48 @@ export default function InputAdornments(props) {
             <Box
                 component="form"
                 sx={{
-                    '& > :not(style)': { m: 1, width: '25ch' },
+                    '& > :not(style)': { m: 1, width: '27ch' },
                 }}
                 noValidate
                 autoComplete="off"
             >
-                <FormControl 
-                    size="small" 
-                    sx={{ m: 1, width: '100%',  "& .MuiOutlinedInput-root.Mui-focused": {
-                                "& > fieldset": {
-                                    borderColor: "#C48900",
-                                }
-                    } }} variant="outlined">
-                    <InputLabel style={{ color: 'white', fontFamily: 'Nunito', fontSize: '14px' }} 
-                    htmlFor="outlined-adornment-password">
-                        Contraseña
-                    </InputLabel>
+                <FormControl
+                    size="small"
+                    sx={{
+                        padding:'0px',
+                        color:'white',
+                        borderRadius: '5px',
+                        width: '100%',
+                        backgroundColor: '#2B4156',
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'transparent',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'transparent',
+                            },
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused":
+                        {
+                            "& > fieldset": {
+                                borderColor: "transparent",
+                            }
+                        },
+                    }}
+                    variant="outlined">
                     <OutlinedInput
-                        style={{ fontSize: '14px', fontFamily: 'Nunito', fontWeight: '300' }}
+                        sx={{
+                            borderRadius: '5px',
+                            width: '100%',
+                            backgroundColor: '#2B4156',
+                        }}
+                        placeholder="Contraseña"
+                        style={{
+                            color: 'white',
+                            fontSize: '14px',
+                            fontFamily: 'Nunito',
+                            fontWeight: '300',
+                        }}
                         id="outlined-adornment-password"
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
@@ -65,6 +89,7 @@ export default function InputAdornments(props) {
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
+                                    style={{ color: 'white' }}
                                     aria-label="toggle password visibility"
                                     onClick={handleClickShowPassword}
                                     onMouseDown={handleMouseDownPassword}
@@ -74,7 +99,7 @@ export default function InputAdornments(props) {
                                 </IconButton>
                             </InputAdornment>
                         }
-                        label="Contraseña"
+                        label=""
                     />
                 </FormControl>
             </Box>

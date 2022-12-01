@@ -7,37 +7,42 @@ export default function BasicTextFields(props) {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: window.location.href == 'http://localhost:3000/' ? '25ch' : '44ch' }
+        '& > :not(style)': { m: 1, 
+          width: window.location.href == 'http://localhost:3000/' ? '25ch' : '358px',
+          maxWidth: window.location.href == 'http://localhost:3000/' ? '25ch' : '100%',
+          height:'25px',
+        }
       }}
       noValidate
       autoComplete="off"
     >
-
       <TextField
+        variant="standard"
         sx={{
-          "& .MuiOutlinedInput-root.Mui-focused": {
-            "& > fieldset": {
-            borderColor: "#C48900",
-            }
-          }
+          marginLeft:'4px',
+          padding:'9px',
+          borderRadius:'5px',
+          backgroundColor:'#2B4156',
         }}
-        InputProps={{ style:
+        InputProps={{ 
+          placeholder: props.label,
+          disableUnderline: true,
+          style:
           {
+            outline:'none',
             borderRadius: '5px',
-            borderColor:'black',
             color:'white',
             fontSize:'14',
             fontFamily:'Nunito',
-          }
+            fontWeight: '300',
+            disableUnderline: true,
+            }
         }}
-        InputLabelProps={{ style: { fontFamily: 'Nunito', color: 'white', fontSize:'14px',fontWeight: '300' } }}
         onChange={props.onChange}
         value={props.value}
         size="small"
         id={props.label}
-        label={props.label}
       />
-
     </Box>
   );
 }

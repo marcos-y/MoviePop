@@ -80,6 +80,7 @@ const MoviePage = (props) => {
     }
 
     var summary = synopsis.replace(/<[^>]+>/g, '');
+    console.log(summary)
 
     return (
         <>
@@ -87,23 +88,24 @@ const MoviePage = (props) => {
 
                 <div style={{ marginTop: '10px', width: '100%', backgroundColor: 'transparent ' }}>
                     <IconButton onClick={handleClick} style={{ marginRight: '14px', float: 'right' }}>
-                        <FontAwesomeIcon style={{ width: '27px', color: 'white' }}
+                        <FontAwesomeIcon style={{ width: '28px', height:'27', color: 'white' }}
                             inverse icon={solid('arrow-left')} />
                     </IconButton>
                 </div>
 
                 <div style={{
-                    color: 'white', maxWidth: '600px', minWidth: '376px', height: 'auto', margin: 'auto', width: '100%'
-                    , marginTop: '20px', padding: '5px'
+                    color: 'white', maxWidth: '450px', minWidth: '376px', height: 'auto', margin: 'auto', 
+                    width: '100%', marginTop: '20px', padding: '2px'
                 }}>
-                    <img src={img.original || img} style={{ width: '100%' }} ></img>
+                    <img src={img.medium || img} style={{ width: '100%' }} ></img>
 
                     <div style={{ fontFamily: 'Nunito' }}>
                         <h5 style={{ textAlign: 'center', fontSize: '20px',fontweight:'700'  }}>Título: {name}</h5>
-                        <div>
-                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14' }} >Lenguaje: {language}</h6>
-                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14'  }}>Géneros: {genres}</h6>
-                            <h6 style={{ padding: '2px', margin: '2px', fontweight:'14'  }}>Fecha de estreno: {premiered}</h6>
+                        <div style={{ fontSize: '14px',fontFamily: 'Nunito',fontWeight:'normal' }} >
+                                Lenguaje: {language} <br></br>
+                                Géneros: {genres} <br></br>
+                                Fecha de estreno: {premiered}
+                         
                         </div>
                     </div>
 
@@ -118,7 +120,7 @@ const MoviePage = (props) => {
                 </div>
 
                 <div style={{
-                    color: 'white', fontFamily: 'Nunito', margin: 'auto', maxWidth: '600px'
+                    color: 'white', fontFamily: 'Nunito', margin: 'auto', maxWidth: '700px'
                     , minWidth: '376px', padding: '10px'
                 }}>
                     <hr style={{
@@ -148,7 +150,7 @@ const MoviePage = (props) => {
                                 fontWeight:'normal'
                             }
                         }}
-                        style={{ maxWidth: '600px', margin: 'auto', width: '100%', marginBottom:'10px', fontWeight:'normal' }}
+                        style={{ maxWidth: '400px', margin: 'auto', width: '100%', marginBottom:'10px', fontWeight:'normal' }}
                         multiline />
                     <Button
                         onClick={handleClickAddComment}

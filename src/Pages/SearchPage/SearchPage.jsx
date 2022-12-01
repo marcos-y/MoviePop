@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 //Components
 import Movie from '../../Components/Movie'
 import SearchBar from '../../Components/SearchBar'
+import Hr from '../../Components/Hr'
 
 const SearchPage = (props) => {
 
@@ -12,38 +13,32 @@ const SearchPage = (props) => {
   //const content = searchResults?.length ? searchResults : <article><p>No matching posts</p></article> 
 
   return (
-      <div
-        style={{
-          marginTop: '200px',
-          maxWidth: '900px',
-          width: '100%',
-          height: 'auto',
-          padding: '20px',
-          backgroundColor: 'transparent ',
-          margin: 'auto',
-          display: 'flex',
-          flexDirection: 'column', 
-          justifyContent:'center',
-          alignItems: 'center',
-        }}
-      >
-        <SearchBar movies={props.movies} setSearchResults={setSearchResults} />
-        <h5 style={{ 
-          fontFamily: 'Nunito', 
-          color: 'white',
-          fontWeight: '700' }}>
-            Peliculas
-        </h5>
-        <hr style={{
-          marginTop: '12px',
-          width: '93%',
-          backgroundColor: 'white',
-          color: 'white',
-          margin: 'auto',
-          marginBottom: '15px'
-        }}>
-        </hr>
+    <div
+      style={{
+        marginTop: '200px',
+        maxWidth: '850px',
+        width: '100%',
+        height: 'auto',
+        padding: '20px',
+        backgroundColor: 'transparent ',
+        margin: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <SearchBar movies={props.movies} setSearchResults={setSearchResults} />
+      <h5 style={{
+        fontFamily: 'Nunito',
+        color: 'white',
+        fontWeight: '700'
+      }}>
+        Películas
+      </h5>
+      <Hr/>
 
+      <div style={{ padding: '20px', display: 'flex', justifyContent: 'center', margin: 'auto' }}>
         <div style={{
           minWidth: '415px',
           width: '100%',
@@ -51,8 +46,9 @@ const SearchPage = (props) => {
           fontFamily: 'Nunito',
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent:'center',
-          flexDirection:'row'
+          justifyContent: 'spaceAround',
+          flexDirection: 'row',
+          margin: 'auto',
         }}>
           {
             searchResults.map((movie) => {
@@ -76,6 +72,7 @@ const SearchPage = (props) => {
           }
         </div>
       </div>
+    </div>
   )
 }
 

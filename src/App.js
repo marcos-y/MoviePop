@@ -61,20 +61,26 @@ function App() {
   }, [userId])
 
   return (
-    <div>
+    <div style={{backgroundColor:'#223C53'}}>
       <Navbar />
       <Routes>
         {/*Here Public Routes*/}
         <Route path='/' element={<LoginPage setUserId={setUserId} />} />
-
         <Route element={<PrivateRoutes />} >
           {/*Here Private Routes*/}
           <Route path='/Movie' element={<MoviePage />} />
           <Route path='/Home' element={<HomePage />} />
-          <Route path='/Search' element={<SearchPage movies={movies} userId={userId} 
-            setFavoriteMovies={setFavoriteMovies} favoriteMovies={favoriteMovies}
+          <Route path='/Search' 
+            element={<SearchPage 
+            movies={movies} 
+            userId={userId} 
+            setFavoriteMovies={setFavoriteMovies} 
+            favoriteMovies={favoriteMovies}
             userName={userName}/>} />
-          <Route path='/Favorites' element={<FavoritesPage  userId={userId} favoriteMovies={favoriteMovies}
+          <Route path='/Favorites' 
+            element={<FavoritesPage  
+            userId={userId} 
+            favoriteMovies={favoriteMovies}
             userName={userName} />} />
         </Route>
       </Routes>
