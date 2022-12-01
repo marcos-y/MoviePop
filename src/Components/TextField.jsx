@@ -8,8 +8,8 @@ export default function BasicTextFields(props) {
       component="form"
       sx={{
         '& > :not(style)': { m: 1, 
-          width: window.location.href == 'http://localhost:3000/' ? '25ch' : '358px',
-          maxWidth: window.location.href == 'http://localhost:3000/' ? '25ch' : '100%',
+          width: ( window.location.href == 'http://localhost:3000/' || window.location.href == 'https://moviepop.workadmin.com.ar/' ) ? '25ch' : '358px',
+          maxWidth: ( window.location.href == 'http://localhost:3000/' || window.location.href == 'https://moviepop.workadmin.com.ar/' ) ? '25ch' : '100%',
           height:'25px',
         }
       }}
