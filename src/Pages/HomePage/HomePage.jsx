@@ -15,7 +15,7 @@ const Home = () => {
           backgroundColor: 'transparent'
         }}
       >
-        <img style={{ maxWidth: '332px' }} src={img}></img>
+        <img style={{ maxWidth: '332px', minWidth: '300px' , height:'auto'}} src={img}></img>
         <div style={{ maxWidth:'235px', margin:'auto'}} >
           <h1 style={{ color: '#C48900', fontFamily: 'Nunito', fontWeight: '700' }} align="center">
             MoviePop!
