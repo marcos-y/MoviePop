@@ -99,7 +99,7 @@ const Movie = (props) => {
   return (
     <>
       <div style={{ padding: '8px', display: 'flex', flexDirection: 'column', maxWidth: '182px', height: 'auto' }}>
-        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={props.img.original || props.img}
+        <img style={{ cursor: 'pointer' }} onClick={handleClick} src={  props.img}
           width="100%" >
         </img>
 

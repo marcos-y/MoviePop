@@ -44,8 +44,8 @@ const FavoritesPage = (props) => {
           margin: 'auto',
         }}>
           {
-            props.favoriteMovies.map((movie) => {
-              return (
+           props.favoriteMovies.map((movie) => {
+            return (
                 <Movie
                   href="FavoritesPage"
                   userId={props.userId}
