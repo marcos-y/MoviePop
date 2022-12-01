@@ -1,6 +1,6 @@
 Importante Instalar! 
 En primer lugar, tener instalado la ultima version de NodeJs: https://nodejs.org/en/download/
-1) npm i react-router-dom 
+1) npm install y npm i react-router-dom 
 2) npm install @mui/material @emotion/react @emotion/styled
    npm install @mui/styles ->Instalado en branch Search
 3) npm install @mui/icons-material
