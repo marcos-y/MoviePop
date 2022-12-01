@@ -15,7 +15,7 @@ const Navbar = () => {
   //Selected buttons
 
   //House Icon State
-  const [isSelected, setIsSelected] = useState(true)
+  const [isSelected, setIsSelected] = useState(false)
 
   //Glass Icon State
   const [isSelected2, setIsSelected2] = useState(false)
