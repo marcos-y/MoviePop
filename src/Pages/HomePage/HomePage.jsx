@@ -12,7 +12,8 @@ const Home = () => {
           top: '50%',
           left: '50%',
           position: 'absolute',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          padding:'30px',
         }}
       >
         <img style={{ maxWidth: '332px', minWidth: '300px' , height:'auto'}} src={img}></img>
