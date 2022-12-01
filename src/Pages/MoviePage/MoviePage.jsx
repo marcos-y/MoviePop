@@ -12,10 +12,11 @@ import Comentario from '../../Components/Comentario'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 
-const MoviePage = (props) => {
+const MoviePage = () => {
 
     const navigate = useNavigate();
 
+    //States passed through LINK PARAMS
     const { state } = useLocation();
     const { name } = state || {};
     const { language } = state || {};
@@ -79,6 +80,7 @@ const MoviePage = (props) => {
         }
     }
 
+    //Replace html tags in Summary STATE
     var summary = synopsis.replace(/<[^>]+>/g, '');
     console.log(summary)
 
@@ -121,10 +123,11 @@ const MoviePage = (props) => {
 
                 <div style={{
                     color: 'white', fontFamily: 'Nunito', margin: 'auto', maxWidth: '700px'
-                    , minWidth: '376px', padding: '10px'
+                    , minWidth: '450px', padding: '10px'
                 }}>
                     <hr style={{
                         marginTop: '30px',
+                        maxWidth:'450px',
                         width: '100%',
                         marginLeft: 'auto',
                         marginRight: 'auto',
@@ -150,7 +153,8 @@ const MoviePage = (props) => {
                                 fontWeight:'normal'
                             }
                         }}
-                        style={{ maxWidth: '400px', margin: 'auto', width: '100%', marginBottom:'10px', fontWeight:'normal' }}
+                        style={{ maxWidth: '450px', margin: 'auto', width: '100%', marginBottom:'10px', 
+                        fontWeight:'normal' }}
                         multiline />
                     <Button
                         onClick={handleClickAddComment}

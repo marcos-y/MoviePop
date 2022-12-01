@@ -17,9 +17,10 @@ const Movie = (props) => {
   //SAVE movieName State
   const [movieName, setMovieName] = useState(props.name)
   //console.log(movieName)
+  //console.log(props)
 
   //Go to Movie Selected
-  const handleClick = (props) => {
+  const handleClick = () => {
     navigate("/Movie", {
       state: {
         userId: props.userId,
@@ -107,12 +108,12 @@ const Movie = (props) => {
             (
               <IconButton onClick={() => handleClickFavorite(props.favoriteMovies)} style={{ float: 'left' }}>
                 <FontAwesomeIcon style={{ width: '20px', float: 'left', color: iconColor }}
-                  inverse icon={solid('bookmark')} />
+                  inverse icon={regular('bookmark')} />
               </IconButton>
             )
             :
             (
-            <IconButton onClick={() => handleClickFavorite(props.favoriteMovies)} style={{ float: 'left' }}>
+            <IconButton style={{ float: 'left' }}>
                 <FontAwesomeIcon style={{ width: '20px', float: 'left', color: iconColor }}
                   inverse icon={solid('trash')} />
               </IconButton>

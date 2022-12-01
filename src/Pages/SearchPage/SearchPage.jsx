@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 //Components
 import Movie from '../../Components/Movie'
 import SearchBar from '../../Components/SearchBar'
-import Hr from '../../Components/Hr'
+import Line from '../../Components/Line'
 
 const SearchPage = (props) => {
 
@@ -36,7 +36,7 @@ const SearchPage = (props) => {
       }}>
         Películas
       </h5>
-      <Hr/>
+      <Line/>
 
       <div style={{ padding: '20px', display: 'flex', justifyContent: 'center', margin: 'auto' }}>
         <div style={{

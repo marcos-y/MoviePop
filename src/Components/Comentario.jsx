@@ -7,9 +7,11 @@ const Comentario = (props) => {
 
     return (
         <div style={{ color: 'white', fontFamily: 'Nunito', margin: 'auto',maxWidth: '600px',
-        minWidth:'376px',padding:'8px', float:'left' }}>
-            <h6 style={{ color: 'white', fontFamily: 'Nunito',fontWeight:'normal' }}> {props.UserName} :</h6>
-            <p style={{ backgroundColor:'#C48900', borderRadius:'5px', padding:'10px',fontWeight:'normal'}}>
+        minWidth:'450px',padding:'8px', float:'left' }}>
+            <div style={{ color: 'white', fontFamily: 'Nunito',fontWeight:'normal', fontSize:'14' }}> 
+                {props.UserName} :
+            </div>
+            <p style={{ backgroundColor:'#C48900', borderRadius:'5px', padding:'10px',fontWeight:'normal', fontSize:'14' }}>
                 {props.comment}
             </p>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hr = () => {
+const Line = () => {
   return (
     <hr style={{
         opacity:'0.09000000357627869',
@@ -16,4 +16,4 @@ const Hr = () => {
   )
 }
 
-export default Hr
+export default Line

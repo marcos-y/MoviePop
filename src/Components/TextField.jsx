@@ -17,21 +17,27 @@ export default function BasicTextFields(props) {
       autoComplete="off"
     >
       <TextField
+        style={{color:'white',fontSize:'14'}}
         variant="standard"
         sx={{
           marginLeft:'4px',
           padding:'9px',
           borderRadius:'5px',
-          backgroundColor:'#2B4156',
+          //background:'#2B4156',
+          background:'rgba(43, 65, 86, 1)',
+          //background: 'rgba(0,0,0,0.05000000074505806)',
+          color:'white'
         }}
         InputProps={{ 
           placeholder: props.label,
           disableUnderline: true,
           style:
           {
+            position:'relative',
             outline:'none',
             borderRadius: '5px',
             color:'white',
+            opacity:'10',
             fontSize:'14',
             fontFamily:'Nunito',
             fontWeight: '300',

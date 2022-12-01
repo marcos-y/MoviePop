@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 //Components
 import Movie from '../../Components/Movie'
-import Hr from '../../Components/Hr'
+import Line from '../../Components/Line'
 
 const FavoritesPage = (props) => {
 
@@ -29,7 +29,7 @@ const FavoritesPage = (props) => {
       }}>
         Mis películas favoritas
       </h5>
-      <Hr/>
+      <Line/>
 
       <div style={{ padding: '20px', display: 'flex', justifyContent: 'center', margin: 'auto' }}>
         <div style={{
