@@ -99,9 +99,9 @@ const MoviePage = () => {
                     color: 'white', maxWidth: '450px', minWidth: '376px', height: 'auto', margin: 'auto', 
                     width: '100%', marginTop: '20px', padding: '2px'
                 }}>
-                    <img src={img.medium || img} style={{ width: '100%' }} ></img>
+                    <img src={img.medium || img} style={{ width: '100%', marginLeft:'5px' }} ></img>
 
-                    <div style={{ fontFamily: 'Nunito' }}>
+                    <div style={{ fontFamily: 'Nunito', padding:'10px' }}>
                         <h5 style={{ textAlign: 'center', fontSize: '20px',fontweight:'700'  }}>Título: {name}</h5>
                         <div style={{ fontSize: '14px',fontFamily: 'Nunito',fontWeight:'normal' }} >
                                 Lenguaje: {language} <br></br>
@@ -111,7 +111,7 @@ const MoviePage = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div style={{ padding:'5px' }}>
                         <h5 style={{ textAlign: 'center', fontSize: '20px', fontWeight:'700',fontFamily: 'Nunito' }}>
                             Sinopsis:
                         </h5>

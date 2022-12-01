@@ -56,9 +56,9 @@ const Navbar = () => {
   return (
     <>
       {
-        (( window.location.href === 'https://moviepop.workadmin.com.ar/') 
+        (( window.location.href === 'https://moviepop.workadmin.com.ar/' || window.location.href === 'https://moviepop.workadmin.com.ar/Movie'  ) 
         || 
-        (window.location.href === 'http://localhost:3000/'  )) 
+        (window.location.href === 'http://localhost:3000/'  || window.location.href === 'http://localhost:3000/Movie'  )) 
         ? null :
         (
             <div style={{
