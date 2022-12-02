@@ -22,7 +22,7 @@ function App() {
 
   const [movies, setMovies] = useState([])
   const [favoriteMovies, setFavoriteMovies] = useState([])
-  const [userId, setUserId] = useState(sessionStorage.getItem('userId'))
+  const [userId, setUserId] = useState(0)
   const [userName, setUserName] = useState('')
 
   //API data ( GET--ALL MOVIES-- )
@@ -41,8 +41,7 @@ function App() {
 
   //API data ( GET--FAVORITE MOVIES--)
   const getFavoriteMovies = (props) => {
-    
-    //console.log('user id',props)
+    console.log('user id',props)
       axios
         .get(`https://moviepop-api.onrender.com/favorites/${props}`)
         .then(({ data }) => {
@@ -58,7 +57,7 @@ function App() {
     setUserId(sessionStorage.getItem('userId'))
     getAllMovies()
     getFavoriteMovies(userId)
-  }, [])
+  }, [userId])
 
   return (
     <div style={{backgroundColor:'#223C53'}}>

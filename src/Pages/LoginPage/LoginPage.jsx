@@ -32,7 +32,7 @@ const LoginPage = (props) => {
     axios
       .post('https://moviepop-api.onrender.com/users', { UserName, UserPassword })
       .then(({ data }) => {
-        //console.log('Sucessfully logged',data)
+        console.log('Gloabl Id:',data.id)
         sessionStorage.setItem('userId', data.id)
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
