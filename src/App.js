@@ -22,12 +22,12 @@ function App() {
 
   const [movies, setMovies] = useState([])
   const [favoriteMovies, setFavoriteMovies] = useState([])
-  const [userId, setUserId] = useState(0)
+  const [userId, setUserId] = useState(sessionStorage.getItem('userId'))
   const [userName, setUserName] = useState('')
 
   //API data ( GET--ALL MOVIES-- )
-  const getAllMovies = async () => {
-    await
+  const getAllMovies =  () => {
+  
       axios
         .get('https://api.tvmaze.com/search/shows?q=star%20wars')
         .then(({ data }) => {
@@ -40,12 +40,11 @@ function App() {
   }
 
   //API data ( GET--FAVORITE MOVIES--)
-  const getFavoriteMovies = async () => {
-    setUserId(sessionStorage.getItem('userId'))
-    setUserName(sessionStorage.getItem('name'))
-    await
+  const getFavoriteMovies = (props) => {
+    
+    //console.log('user id',props)
       axios
-        .get(`https://moviepop-api.onrender.com/favorites/${userId}`)
+        .get(`https://moviepop-api.onrender.com/favorites/${props}`)
         .then(({ data }) => {
           setFavoriteMovies(data)
           //console.log('Favorite Movie list:',data)
@@ -56,9 +55,10 @@ function App() {
   }
 
   useEffect(() => {
+    setUserId(sessionStorage.getItem('userId'))
     getAllMovies()
-    getFavoriteMovies()
-  }, [userId])
+    getFavoriteMovies(userId)
+  }, [])
 
   return (
     <div style={{backgroundColor:'#223C53'}}>
