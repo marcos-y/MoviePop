@@ -6,6 +6,7 @@ import TextField from '../../Components/TextField'
 import ImageList from '../../Components/ImageList'
 import Button from '@mui/material/Button';
 import PasswordTextField from '../../Components/PasswordTextField'
+import CircularIndeterminate from '../../Components/CirculateIndeterminate';
 
 //Movie Icon
 import icon from '../../Images/movie_icon.svg'
@@ -26,13 +27,15 @@ const LoginPage = (props) => {
   const handleChangeUserName = (e) => setUserName(e.target.value)
   const handleChangeUserPassword = (e) => setUserPassword(e.target.value)
 
+  const [isLogging, setIsLogging] = useState(false)
 
   const handleClick = () => {
+    setIsLogging(true)
     //console.log('user:', UserName, 'password:', UserPassword)
     axios
       .post('https://moviepop-api.onrender.com/users', { UserName, UserPassword })
       .then(({ data }) => {
-        console.log('Gloabl Id:',data.id)
+        //console.log('Gloabl Id:',data.id)
         sessionStorage.setItem('userId', data.id)
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
@@ -40,7 +43,8 @@ const LoginPage = (props) => {
         navigate('/Home')
       })
       .catch(({ response }) => {
-        console.log(response)
+        setIsLogging(false)
+        //console.log(response)
         alert('Contraseña o usuario mal ingresado')
       })
   }
@@ -75,6 +79,12 @@ const LoginPage = (props) => {
             variant="contained">
             Entrar
           </Button>
+          {
+            isLogging ? 
+            <CircularIndeterminate/>
+            :
+            null
+          }
           <hr style={{
             opacity: '0.09000000357627869',
             marginTop: '30px',
