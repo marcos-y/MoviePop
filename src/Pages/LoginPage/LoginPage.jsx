@@ -27,6 +27,7 @@ const LoginPage = (props) => {
   const handleChangeUserName = (e) => setUserName(e.target.value)
   const handleChangeUserPassword = (e) => setUserPassword(e.target.value)
 
+  //Loading component State
   const [isLogging, setIsLogging] = useState(false)
 
   const handleClick = () => {
@@ -41,6 +42,7 @@ const LoginPage = (props) => {
         sessionStorage.setItem('name', UserName)
         sessionStorage.setItem('isLogged', true)
         props.setUserId(data.id)
+        props.setUserName(UserName)
         navigate('/Home')
       })
       .catch(({ response }) => {

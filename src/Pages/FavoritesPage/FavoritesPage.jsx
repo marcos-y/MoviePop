@@ -7,6 +7,7 @@ import Line from '../../Components/Line'
 const FavoritesPage = (props) => {
 
   //console.log(props.favoriteMovies)
+  //console.log('user name:',props.userName)
 
   return (
     <div style={{

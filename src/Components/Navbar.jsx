@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 //Icons
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands, icon, duotone } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {

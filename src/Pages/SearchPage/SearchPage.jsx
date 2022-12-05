@@ -7,6 +7,8 @@ import Line from '../../Components/Line'
 
 const SearchPage = (props) => {
 
+  //console.log('user name:',props.userName)
+
   const [searchResults, setSearchResults] = useState([])
   useEffect(()=>{
     setSearchResults(props.movies)

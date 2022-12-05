@@ -48,7 +48,7 @@ const MoviePage = () => {
             })
             .catch(({ response }) => {
                 console.log(response)
-                alert('Bad request')
+                //alert('Bad request')
             })
     }
 

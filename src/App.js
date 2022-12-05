@@ -73,7 +73,7 @@ function App() {
       <Navbar />
       <Routes>
         {/*Here Public Routes*/}
-        <Route path='/' element={<LoginPage setUserId={setUserId} />} />
+        <Route path='/' element={<LoginPage setUserId={setUserId} setUserName={setUserName} />} />
         <Route element={<PrivateRoutes />} >
           {/*Here Private Routes*/}
           <Route path='/Movie' element={<MoviePage />} />
