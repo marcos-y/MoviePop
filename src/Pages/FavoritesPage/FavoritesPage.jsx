@@ -6,22 +6,22 @@ import Line from '../../Components/Line'
 
 const FavoritesPage = (props) => {
 
+  //console.log(props.favoriteMovies)
+
   return (
-    <div
-      style={{
-        marginTop: '200px',
-        maxWidth: '850px',
-        width: '100%',
-        height: 'auto',
-        padding: '20px',
-        backgroundColor: 'transparent ',
-        margin: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div style={{
+      marginTop: '200px',
+      maxWidth: '850px',
+      width: '100%',
+      height: 'auto',
+      padding: '20px',
+      backgroundColor: 'transparent ',
+      margin: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
       <h5 style={{
         fontFamily: 'Nunito',
         color: 'white',
@@ -29,7 +29,7 @@ const FavoritesPage = (props) => {
       }}>
         Mis películas favoritas
       </h5>
-      <Line/>
+      <Line />
 
       <div style={{ padding: '20px', display: 'flex', justifyContent: 'center', margin: 'auto' }}>
         <div style={{
@@ -43,24 +43,28 @@ const FavoritesPage = (props) => {
           flexDirection: 'row',
           margin: 'auto',
         }}>
-          {
-            props.favoriteMovies.map((movie) => {
-            return (
-                <Movie
-                  href="FavoritesPage"
-                  userId={props.userId}
-                  userName={props.userName}
-                  key={movie.name}
-                  movieId={movie.movieId}
-                  name={movie.name}
-                  language={movie.language}
-                  genres={movie.genres}
-                  premiered={movie.premiered}
-                  synopsis={movie.synopsys}
-                  img={movie.image} />
-              )
-            })
-          }
+          { props.favoriteMovies.length === 0 ?
+            <div style={{marginTop:'50px'}}>
+              <h3 style={{ color: 'white', fontFamily: 'Nunito' }}>
+                Todavía no hay películas agregadas a favoritos
+              </h3>
+            </div>
+            :
+            (props.favoriteMovies.map((movie) => {
+              return (<Movie
+                href="FavoritesPage"
+                userId={props.userId}
+                userName={props.userName}
+                key={movie.name}
+                movieId={movie.movieId}
+                name={movie.name}
+                language={movie.language}
+                genres={movie.genres}
+                premiered={movie.premiered}
+                synopsis={movie.synopsys}
+                img={movie.image} />)
+            }))
+            }
         </div>
       </div>
     </div>
