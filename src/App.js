@@ -43,7 +43,7 @@ function App() {
   //API data ( GET--FAVORITE MOVIES--)
   const getFavoriteMovies = (props) => {
     //console.log('user id',props)
-    if (props != undefined)
+    if (props != null)
     {
       axios
         .get(`https://moviepop-api.onrender.com/favorites/${props}`)
@@ -59,6 +59,7 @@ function App() {
 
     useEffect(() => {
       setUserId(sessionStorage.getItem('userId'))
+      //console.log(userId)
       getAllMovies()
       getFavoriteMovies(userId)
     }, [userId])
