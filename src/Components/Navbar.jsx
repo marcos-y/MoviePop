@@ -85,7 +85,7 @@ const Navbar = () => {
                 </IconButton>
 
                 <IconButton onClick={handleClickExit} >
-                  <FontAwesomeIcon style={{ width: '28px', height: '27', color: 'white' }}
+                  <FontAwesomeIcon style={{ width: '28px', height: '27', color: 'white'}}
                     inverse icon={solid('right-from-bracket')} />
                 </IconButton>
 
