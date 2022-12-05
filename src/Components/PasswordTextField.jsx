@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect}  from 'react';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,9 +9,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Box from '@mui/material/Box';
 
 export default function InputAdornments(props) {
+
     const [values, setValues] = React.useState({
         amount: '',
-        password: props.password,
+        password: '',
         weight: '',
         weightRange: '',
         showPassword: false,
@@ -22,7 +23,10 @@ export default function InputAdornments(props) {
         //console.log(values)
     };
 
-    props.setPassword(values.password);
+    useEffect(()=>{
+        props.setPassword(values.password);
+    },[values.password])  
+    
 
     const handleClickShowPassword = () => {
         setValues({

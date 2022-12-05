@@ -57,7 +57,7 @@ const SearchPage = (props) => {
             searchResults.map((movie) => {
               return (
                 <Movie
-                  key={movie.name}
+                  key={movie.show.id}
                   favoriteMovies={props.favoriteMovies}
                   setFavoriteMovies={props.setFavoriteMovies}
                   href="SearchPage"
