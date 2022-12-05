@@ -77,7 +77,7 @@ const Movie = (props) => {
 
       //Change Icon Favorites Color
       iconColor === 'white' ? setIconColor("#C48900") : setIconColor('white')
-      console.log('movie added to favorites:', favoriteMovie)
+      //console.log('movie added to favorites:', favoriteMovie)
 
       //ADD Favorite Movie to FavoriteMoviesArray
       props.push(favoriteMovie)

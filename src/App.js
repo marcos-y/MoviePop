@@ -22,7 +22,7 @@ function App() {
 
   const [movies, setMovies] = useState([])
   const [favoriteMovies, setFavoriteMovies] = useState([])
-  const [userId, setUserId] = useState(0)
+  const [userId, setUserId] = useState(sessionStorage.getItem('userId'))
   const [userName, setUserName] = useState('')
 
   //API data ( GET--ALL MOVIES-- )
@@ -35,13 +35,13 @@ function App() {
           //console.log('Movie list:',data)
         })
         .catch(({ response }) => {
-          console.log(response)
+          //console.log(response)
         })
   }
 
   //API data ( GET--FAVORITE MOVIES--)
   const getFavoriteMovies = (props) => {
-    console.log('user id',props)
+    //console.log('user id',props)
       axios
         .get(`https://moviepop-api.onrender.com/favorites/${props}`)
         .then(({ data }) => {

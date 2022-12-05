@@ -33,6 +33,7 @@ const LoginPage = (props) => {
     setIsLogging(true)
     //console.log('user:', UserName, 'password:', UserPassword)
     axios
+       //http://localhost:8080/users
       .post('https://moviepop-api.onrender.com/users', { UserName, UserPassword })
       .then(({ data }) => {
         //console.log('Gloabl Id:',data.id)
@@ -44,7 +45,7 @@ const LoginPage = (props) => {
       })
       .catch(({ response }) => {
         setIsLogging(false)
-        //console.log(response)
+        console.log(response)
         alert('Contraseña o usuario mal ingresado')
       })
   }

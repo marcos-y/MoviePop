@@ -82,7 +82,7 @@ const MoviePage = () => {
 
     //Replace html tags in Summary STATE
     var summary = synopsis.replace(/<[^>]+>/g, '');
-    console.log(summary)
+    //console.log(summary)
 
     return (
         <>
